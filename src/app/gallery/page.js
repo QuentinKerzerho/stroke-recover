@@ -89,17 +89,51 @@ export default function Album() {
                     height: "100%",
                     display: "flex",
                     flexDirection: "column",
+                    justifyContent: "flex-end",
                   }}
                 >
-                  <img src={card.cover.src} />
-                  <CardContent sx={{ flexGrow: 1 }}>
-                    <Typography gutterBottom variant="h5" component="h2">
+                  <CardContent
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "flex-end",
+                    }}
+                  >
+                    <CardMedia
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        justifyContent: "center",
+                      }}
+                      component="img"
+                      height="50"
+                      image={card.cover.src}
+                      alt="name"
+                    />
+                    <Typography
+                      sx={{ marginTop: "40px" }}
+                      gutterBottom
+                      variant="h5"
+                      component="h2"
+                    >
                       {card.name}
                     </Typography>
+                    <CardActions>
+                      <Button
+                        variant="contained"
+                        style={{ backgroundColor: "#FD853A" }}
+                        sx={{
+                          fontFamily: "Holtwood One Sc",
+                          width: "150px",
+                          height: "50px",
+                          fontSize: "15px",
+                        }}
+                      >
+                        Ajouter
+                      </Button>
+                    </CardActions>
                   </CardContent>
-                  <CardActions>
-                    <Button size="small">View</Button>
-                  </CardActions>
                 </Card>
               </Grid>
             ))}
