@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### Projet Stroke Recover
 
-## Getting Started
+## Aperçu
+Le projet Stroke-Recover est une application web développée en utilisant Next.js et React, conçue pour aider les personnes ayant subi un AVC à s'entraîner à parler en créant des diaporamas avec des photos. L'objectif est d'offrir une expérience conviviale et personnalisée pour faciliter la thérapie de parole à domicile.
 
-First, run the development server:
+## Fonctionnalités
+1. Création de Diaporamas : Permet à l'utilisateur de créer des diaporamas en ajoutant des images et en définissant un ordre spécifique.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+2. Enregistrement Vocal : Intègre une fonctionnalité d'enregistrement vocal pour chaque diapositive, permettant à l'utilisateur de s'entraîner à parler en associant sa voix aux images.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Navigation Intuitive : Interface utilisateur conviviale pour une navigation facile entre les diapositives et la gestion des enregistrements vocaux.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Comment Utiliser
+Installation des Dépendances : Exécutez npm install pour installer toutes les dépendances nécessaires.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Démarrage du Serveur de Développement : Utilisez la commande npm run dev pour démarrer le serveur de développement Next.js.
 
-## Learn More
+Accès à l'Application : Ouvrez votre navigateur et accédez à http://localhost:3000 pour utiliser l'application.
 
-To learn more about Next.js, take a look at the following resources:
+## Exigences
+Node.js
+npm
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Auteurs
+Quentin Kerzerho
