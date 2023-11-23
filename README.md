@@ -1,4 +1,4 @@
-### Projet Stroke Recover
+# Projet Stroke Recover
 
 ## Aperçu
 Le projet Stroke-Recover est une application web développée en utilisant Next.js et React, conçue pour aider les personnes ayant subi un AVC à s'entraîner à parler en créant des diaporamas avec des photos. L'objectif est d'offrir une expérience conviviale et personnalisée pour faciliter la thérapie de parole à domicile.
