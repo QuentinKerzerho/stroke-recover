@@ -18,21 +18,134 @@ import Container from "@mui/material/Container";
 import Link from "@mui/material/Link";
 import ResponsiveAppBar from "@/src/components/ResponsiveAppBar";
 import { ListPhoto } from "@/src/datas/ListPhoto";
+import PropTypes from "prop-types";
+import Avatar from "@mui/material/Avatar";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
+import DialogTitle from "@mui/material/DialogTitle";
+import Dialog from "@mui/material/Dialog";
+import PersonIcon from "@mui/icons-material/Person";
+import AddIcon from "@mui/icons-material/Add";
+import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import { blue } from "@mui/material/colors";
+import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
+function SimpleDialog(props) {
+  const { onClose, selectedValue, open } = props;
+
+  const handleClose = () => {
+    onClose(selectedValue);
+  };
+
+  return (
+    <Dialog onClose={handleClose} open={open}>
+      <DialogTitle>Liste du diaporama</DialogTitle>
+      <List sx={{ pt: 0 }}>
+        {ListPhoto.map((card, index) => (
+          <ListItem disableGutters key={index}>
+            <ListItemButton>
+              <ListItemAvatar
+                sx={{ display: "flex", justifyContent: "center" }}
+              >
+                {index + 1}
+              </ListItemAvatar>
+
+              <ListItemText
+                sx={{
+                  display: "flex",
+                  marginRight: "50px",
+                  justifyContent: "center",
+                }}
+                primary={card.name}
+              />
+            </ListItemButton>
+          </ListItem>
+        ))}
+        {/* <ListItem disableGutters>
+          <ListItemButton
+            autoFocus
+            onClick={() => handleListItemClick("addAccount")}
+          >
+            <ListItemAvatar>
+              <Avatar>
+                <AddIcon />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary="Add account" />
+          </ListItemButton>
+        </ListItem> */}
+      </List>
+    </Dialog>
+  );
+}
+
+SimpleDialog.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  open: PropTypes.bool.isRequired,
+  selectedValue: PropTypes.string.isRequired,
+};
+
+// ----------------------------------------------------------------------------------------------------------
 export default function Album() {
+  const [open, setOpen] = React.useState(false);
+  const [selectedValue, setSelectedValue] = React.useState("");
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (value) => {
+    setOpen(false);
+    setSelectedValue(value);
+  };
   //   const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const [articles, setArticles] = useState([]);
 
   const addToList = () => {
     setArticles([...ListPhoto]);
   };
-  console.log(ListPhoto[1].cover);
 
   return (
     <div>
       <main>
         <ResponsiveAppBar />
         {/* Hero unit */}
+        <div>
+          <br />
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <Button
+              onClick={handleClickOpen}
+              sx={[
+                {
+                  color: "#FD853A",
+                  borderColor: "#FD853A",
+                  fontFamily: "Holtwood One Sc",
+                  width: "20em",
+                  height: "8em",
+                },
+                {
+                  "&:hover": {
+                    color: "#FD853A",
+                    backgroundColor: "white",
+                    borderColor: "#FD853A",
+                    boxShadow: "2",
+                  },
+                },
+              ]}
+              variant="outlined"
+            >
+              Voir le diaporama
+            </Button>
+            <SimpleDialog
+              selectedValue={selectedValue}
+              open={open}
+              onClose={handleClose}
+            />
+          </Box>
+        </div>
         <Box
           sx={{
             bgcolor: "background.paper",
