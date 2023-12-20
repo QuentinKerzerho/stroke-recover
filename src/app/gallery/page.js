@@ -1,25 +1,19 @@
 "use client";
 
 import React, { useState } from "react";
-import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
-import CameraIcon from "@mui/icons-material/PhotoCamera";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import Link from "@mui/material/Link";
 import ResponsiveAppBar from "@/src/components/ResponsiveAppBar";
 import { ListPhoto } from "@/src/datas/ListPhoto";
 import PropTypes from "prop-types";
-import Avatar from "@mui/material/Avatar";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
@@ -27,11 +21,8 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Dialog from "@mui/material/Dialog";
-import PersonIcon from "@mui/icons-material/Person";
-import AddIcon from "@mui/icons-material/Add";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
-import { blue } from "@mui/material/colors";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import DeleteForeverSharpIcon from "@mui/icons-material/DeleteForeverSharp";
+import ListDiapo from "@/src/components/ListDiapo";
 
 function SimpleDialog(props) {
   const { onClose, selectedValue, open } = props;
@@ -46,37 +37,29 @@ function SimpleDialog(props) {
       <List sx={{ pt: 0 }}>
         {ListPhoto.map((card, index) => (
           <ListItem disableGutters key={index}>
-            <ListItemButton>
-              <ListItemAvatar
-                sx={{ display: "flex", justifyContent: "center" }}
-              >
-                {index + 1}
-              </ListItemAvatar>
-
-              <ListItemText
-                sx={{
-                  display: "flex",
-                  marginRight: "50px",
-                  justifyContent: "center",
-                }}
-                primary={card.name}
-              />
+            <ListItemAvatar sx={{ display: "flex", justifyContent: "center" }}>
+              {index + 1}
+            </ListItemAvatar>
+            <ListItemText
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                width: "50px",
+              }}
+              primary={card.name}
+            />
+            <ListItemButton
+              disableGutters={true}
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                borderRadius: "20px",
+              }}
+            >
+              <DeleteForeverSharpIcon sx={{ padding: "0" }} />
             </ListItemButton>
           </ListItem>
         ))}
-        {/* <ListItem disableGutters>
-          <ListItemButton
-            autoFocus
-            onClick={() => handleListItemClick("addAccount")}
-          >
-            <ListItemAvatar>
-              <Avatar>
-                <AddIcon />
-              </Avatar>
-            </ListItemAvatar>
-            <ListItemText primary="Add account" />
-          </ListItemButton>
-        </ListItem> */}
       </List>
     </Dialog>
   );
