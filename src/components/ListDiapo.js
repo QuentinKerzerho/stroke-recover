@@ -1,4 +1,16 @@
-export default function BasicButtons({ onClose, selectedValue, open }) {
+import Dialog from "@mui/material/Dialog";
+import PropTypes from "prop-types";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemText from "@mui/material/ListItemText";
+import DialogTitle from "@mui/material/DialogTitle";
+import DeleteForeverSharpIcon from "@mui/icons-material/DeleteForeverSharp";
+import BasicButtons from "@/src/components/ListDiapo";
+import { ListPhoto } from "@/src/datas/ListPhoto";
+
+export default function ListDiapo({ onClose, selectedValue, open }) {
   //   const { onClose, selectedValue, open } = props;
 
   const handleClose = () => {
