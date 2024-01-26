@@ -11,7 +11,7 @@ export default function Home() {
       <ResponsiveAppBar />
       <TextIntro />
       <Stack
-        spacing={20}
+        spacing={10}
         direction="row"
         sx={{ display: "flex", justifyContent: "center", marginTop: "10em" }}
         useFlexGap={false}

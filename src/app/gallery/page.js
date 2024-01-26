@@ -14,20 +14,11 @@ import Container from "@mui/material/Container";
 import ResponsiveAppBar from "@/src/components/ResponsiveAppBar";
 import { ListPhoto } from "@/src/datas/ListPhoto";
 import ListDiapo from "@/src/components/ListDiapo";
+import SeeTheSlidshow from "@/src/components/SeeTheSlidshow";
+import BasicButtons from "@/src/components/BasicButtons";
 
 // ----------------------------------------------------------------------------------------------------------
 export default function Gallery() {
-  const [open, setOpen] = React.useState(false);
-  const [selectedValue, setSelectedValue] = React.useState("");
-
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = (value) => {
-    setOpen(false);
-    setSelectedValue(value);
-  };
   //   const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   const [articles, setArticles] = useState([]);
 
@@ -39,40 +30,7 @@ export default function Gallery() {
     <div>
       <main>
         <ResponsiveAppBar />
-        {/* Hero unit */}
-        <div>
-          <br />
-          <Box sx={{ display: "flex", justifyContent: "center" }}>
-            <Button
-              onClick={handleClickOpen}
-              sx={[
-                {
-                  color: "#FD853A",
-                  borderColor: "#FD853A",
-                  fontFamily: "Holtwood One Sc",
-                  width: "20em",
-                  height: "8em",
-                },
-                {
-                  "&:hover": {
-                    color: "#FD853A",
-                    backgroundColor: "white",
-                    borderColor: "#FD853A",
-                    boxShadow: "2",
-                  },
-                },
-              ]}
-              variant="outlined"
-            >
-              Voir le diaporama
-            </Button>
-            <ListDiapo
-              selectedValue={selectedValue}
-              open={open}
-              onClose={handleClose}
-            />
-          </Box>
-        </div>
+        <SeeTheSlidshow />
         <Box
           sx={{
             bgcolor: "background.paper",
@@ -99,24 +57,14 @@ export default function Gallery() {
               Vous avez la possibilité d'ajouter les photos qui vous conviennent
               ici.
             </Typography>
-            <Stack
-              sx={{ pt: 4 }}
-              direction="row"
-              spacing={2}
-              justifyContent="center"
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+              }}
             >
-              <Button
-                style={{ backgroundColor: "#FD853A" }}
-                sx={{
-                  fontFamily: "Holtwood One Sc",
-                  width: "20em",
-                  height: "8em",
-                }}
-                variant="contained"
-              >
-                Ajouter des photos
-              </Button>
-            </Stack>
+              <BasicButtons name="Ajouter des photos" to="/" />
+            </Box>
           </Container>
         </Box>
         <Container sx={{ py: 8 }} maxWidth="md">
