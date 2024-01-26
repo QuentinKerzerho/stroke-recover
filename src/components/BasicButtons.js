@@ -1,17 +1,15 @@
 import * as React from "react";
-import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
-import Gallery from "@/src/app/gallery/page";
-import Link from "next/link";
 
-export default function BasicButtons() {
+import Button from "@mui/material/Button";
+import Link from "next/link";
+import Gallery from "@/src/app/gallery/page";
+
+export default function BasicButtons(props) {
+  const { to, name } = props;
+  console.log(to);
+
   return (
-    <Stack
-      spacing={20}
-      direction="row"
-      sx={{ display: "flex", justifyContent: "center", marginTop: "10em" }}
-      useFlexGap={false}
-    >
+    <Link href={to}>
       <Button
         style={{ backgroundColor: "#FD853A" }}
         sx={{
@@ -21,22 +19,8 @@ export default function BasicButtons() {
         }}
         variant="contained"
       >
-        LANCER
+        {name}
       </Button>
-      <Link href="/gallery">
-        <Button
-          key={Gallery}
-          style={{ backgroundColor: "#FD853A" }}
-          sx={{
-            fontFamily: "Holtwood One Sc",
-            width: "20em",
-            height: "10em",
-          }}
-          variant="contained"
-        >
-          Ajouter des photos
-        </Button>
-      </Link>
-    </Stack>
+    </Link>
   );
 }

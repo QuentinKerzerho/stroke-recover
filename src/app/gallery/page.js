@@ -16,7 +16,7 @@ import { ListPhoto } from "@/src/datas/ListPhoto";
 import ListDiapo from "@/src/components/ListDiapo";
 
 // ----------------------------------------------------------------------------------------------------------
-export default function Album() {
+export default function Gallery() {
   const [open, setOpen] = React.useState(false);
   const [selectedValue, setSelectedValue] = React.useState("");
 
