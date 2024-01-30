@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import React, { useState } from "react";
 
-export default function Gallery() {
+export default function SeeTheSlidshow({ setArticles }) {
   const [open, setOpen] = React.useState(false);
   const [selectedValue, setSelectedValue] = React.useState("");
 
@@ -47,6 +47,7 @@ export default function Gallery() {
           selectedValue={selectedValue}
           open={open}
           onClose={handleClose}
+          setArticles={setArticles}
         />
       </Box>
     </div>
