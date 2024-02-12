@@ -1,5 +1,3 @@
-"use client";
-
 import ResponsiveAppBar from "../components/ResponsiveAppBar";
 import BasicButtons from "../components/BasicButtons";
 import TextIntro from "../components/TextIntro";

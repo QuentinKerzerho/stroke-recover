@@ -1,6 +1,4 @@
-"use client";
-
-import React, { useState } from "react";
+import React from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
@@ -9,11 +7,17 @@ import { ListPhoto } from "@/src/datas/ListPhoto";
 import SeeTheSlidshow from "@/src/components/SeeTheSlidshow";
 import BasicButtons from "@/src/components/BasicButtons";
 import ListPhotoComponent from "@/src/components/ListPhotoComponent";
+import prisma from "@/lib/prisma";
 
 // ----------------------------------------------------------------------------------------------------------
-export default function Gallery() {
-  const [articles, setArticles] = useState([]);
+export default async function Gallery() {
+  const feed = await prisma.photo.findMany({
+    include: {
+      name: true, // Inclure les données liées à 'photos'
+    },
+  });
 
+  console.log(feed);
   const handleChildVariable = (variable) => {
     setArticles(variable);
   };
@@ -21,7 +25,7 @@ export default function Gallery() {
     <div>
       <main>
         <ResponsiveAppBar />
-        <SeeTheSlidshow setArticles={articles} />
+        {/* <SeeTheSlidshow /> */}
         <Box
           sx={{
             bgcolor: "background.paper",
@@ -58,7 +62,7 @@ export default function Gallery() {
             </Box>
           </Container>
         </Box>
-        <ListPhotoComponent setArticles={setArticles} />
+        <ListPhotoComponent feed={feed} />
       </main>
     </div>
   );

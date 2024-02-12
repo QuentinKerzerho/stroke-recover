@@ -1,10 +1,11 @@
 // pages/test.js
+
 import React from "react";
 import prisma from "@/lib/prisma";
 import ResponsiveAppBar from "@/src/components/ResponsiveAppBar";
 
 export default async function Test() {
-  // const feed = await prisma.Name.findMany();
+  const feed = await prisma.Name.findMany();
 
   return (
     <div>

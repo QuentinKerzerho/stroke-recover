@@ -7,11 +7,12 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
-import React, { useState } from "react";
+import React from "react";
+import { Image } from "@mui/icons-material";
+import { ImageListItem } from "@mui/material";
+import { ImageList } from "@mui/material";
 
-export default function ListPhotoComponent({ setArticles }) {
-  const [articles, setLocalArticles] = useState([]);
-
+export default async function ListPhotoComponent({ feed }) {
   const addToList = (card) => {
     setLocalArticles((prevArticles) => [...prevArticles, card]);
     setArticles((prevArticles) => [...prevArticles, card]);
@@ -21,8 +22,8 @@ export default function ListPhotoComponent({ setArticles }) {
     <Container sx={{ py: 8 }} maxWidth="md">
       {/* End hero unit */}
       <Grid container spacing={4}>
-        {ListPhoto.map((card, index) => (
-          <Grid item key={index} xs={12} sm={6} md={4}>
+        {feed.map((photo) => (
+          <Grid key={photo.id} xs={12} sm={6} md={4}>
             <Card
               sx={{
                 height: "100%",
@@ -40,6 +41,7 @@ export default function ListPhotoComponent({ setArticles }) {
                 }}
               >
                 <CardMedia
+                  key={photo.id}
                   sx={{
                     display: "flex",
                     flexDirection: "column",
@@ -47,16 +49,17 @@ export default function ListPhotoComponent({ setArticles }) {
                   }}
                   component="img"
                   height="50"
-                  image={card.cover.src}
+                  image={photo.url}
                   alt="name"
                 />
+
                 <Typography
                   sx={{ marginTop: "40px" }}
                   gutterBottom
                   variant="h5"
                   component="h2"
                 >
-                  {card.name}
+                  {photo.name.name}
                 </Typography>
                 <CardActions>
                   <Button
@@ -68,8 +71,8 @@ export default function ListPhotoComponent({ setArticles }) {
                       height: "50px",
                       fontSize: "15px",
                     }}
-                    key={index}
-                    onClick={() => addToList(card.name)}
+
+                    // onClick={() => addToList(card.name)}
                   >
                     Ajouter
                   </Button>
