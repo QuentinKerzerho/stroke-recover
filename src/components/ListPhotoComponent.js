@@ -19,14 +19,14 @@ export default async function ListPhotoComponent({ feed }) {
   };
 
   return (
-    <Container sx={{ py: 8 }} maxWidth="md">
+    <Container sx={{ pt: 8 }} maxWidth="md">
       {/* End hero unit */}
-      <Grid container spacing={4}>
+      <Grid container>
         {feed.map((photo) => (
           <Grid key={photo.id} xs={12} sm={6} md={4}>
             <Card
               sx={{
-                height: "100%",
+                margin: "10px",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "flex-end",

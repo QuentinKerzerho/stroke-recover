@@ -23,11 +23,12 @@ const Contact = () => {
         autoComplete="off"
       >
         <Typography
-          component="h1"
-          variant="h2"
-          align="center"
-          color="text.primary"
-          gutterBottom
+          sx={{
+            fontSize: "30px",
+            display: "flex",
+            justifyContent: "center",
+            textAlign: "center",
+          }}
         >
           Formulaire de contact
         </Typography>
