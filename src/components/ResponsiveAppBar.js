@@ -45,12 +45,13 @@ function ResponsiveAppBar() {
             component="a"
             href="/"
             sx={{
-              display: { xs: "none", sm: "flex", md: "flex" },
+              display: { xs: "flex", sm: "flex", md: "flex" },
+              paddingLeft: "10px",
               fontFamily: "Holtwood One Sc",
               letterSpacing: ".3rem",
               color: "inherit",
               textDecoration: "none",
-              fontSize: { sm: "1.2rem", md: "1.2rem" },
+              fontSize: { xs: "0.8em", sm: "1.2rem", md: "1.2rem" },
             }}
           >
             Stroke Recover
@@ -58,6 +59,7 @@ function ResponsiveAppBar() {
 
           <Box
             sx={{
+              flexDirection: "row-reverse",
               flexGrow: 1,
               display: { xs: "flex", sm: "none", md: "none" },
             }}
@@ -104,6 +106,7 @@ function ResponsiveAppBar() {
               {/* ))} */}
             </Menu>
           </Box>
+
           {/* <Typography
             variant="h5"
             noWrap
