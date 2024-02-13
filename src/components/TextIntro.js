@@ -6,7 +6,7 @@ export default function TextIntro() {
           display: "flex",
           flexDirection: "row-reverse",
           justifyContent: "center",
-          marginTop: "50px",
+          margin: "50px",
         }}
       >
         <svg
@@ -28,10 +28,14 @@ export default function TextIntro() {
       </div>
       <p
         style={{
-          marginTop: "20px",
+          marginRight: "20px",
+          marginLeft: "20px",
+          marginTop: "0px",
+          marginBottom: "0px",
           fontSize: "20px",
           display: "flex",
           justifyContent: "center",
+          textAlign: "center",
         }}
       >
         Réveillez la parole, ravivez les souvenirs : notre soutien après un AVC.

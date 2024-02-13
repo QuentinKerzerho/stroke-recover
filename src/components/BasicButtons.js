@@ -12,8 +12,11 @@ export default function BasicButtons(props) {
         style={{ backgroundColor: "#FD853A" }}
         sx={{
           fontFamily: "Holtwood One Sc",
-          width: "20em",
-          height: "10em",
+          paddingRight: "2em",
+          paddingLeft: "2em",
+          paddingTop: "1em",
+          paddingBottom: "1em",
+          fontSize: "1.5em",
         }}
         variant="contained"
       >

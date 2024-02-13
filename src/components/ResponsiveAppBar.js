@@ -45,11 +45,12 @@ function ResponsiveAppBar() {
             component="a"
             href="/"
             sx={{
-              display: { xs: "none", md: "flex" },
+              display: { xs: "none", sm: "flex", md: "flex" },
               fontFamily: "Holtwood One Sc",
               letterSpacing: ".3rem",
               color: "inherit",
               textDecoration: "none",
+              fontSize: { sm: "1.2rem", md: "1.2rem" },
             }}
           >
             Stroke Recover
@@ -58,7 +59,7 @@ function ResponsiveAppBar() {
           <Box
             sx={{
               flexGrow: 1,
-              display: { xs: "flex", md: "none" },
+              display: { xs: "flex", sm: "none", md: "none" },
             }}
           >
             <IconButton
@@ -86,7 +87,7 @@ function ResponsiveAppBar() {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: "block", md: "none" },
+                display: { xs: "block", sm: "block", md: "block" },
               }}
             >
               {/* {pages.map((page) => ( */}
@@ -103,7 +104,7 @@ function ResponsiveAppBar() {
               {/* ))} */}
             </Menu>
           </Box>
-          <Typography
+          {/* <Typography
             variant="h5"
             noWrap
             component="a"
@@ -118,12 +119,12 @@ function ResponsiveAppBar() {
             }}
           >
             Stroke Recover
-          </Typography>
+          </Typography> */}
           <Box
             sx={{
               flexDirection: "row-reverse",
               flexGrow: 1,
-              display: { xs: "none", md: "flex" },
+              display: { xs: "none", sm: "flex", md: "flex" },
             }}
           >
             {/* {pages.map((page) => ( */}
