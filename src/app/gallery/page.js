@@ -17,7 +17,6 @@ export default async function Gallery() {
     },
   });
 
-  console.log(feed);
   const handleChildVariable = (variable) => {
     setArticles(variable);
   };

@@ -59,7 +59,7 @@ export default async function ListPhotoComponent({ feed }) {
                   variant="h5"
                   component="h2"
                 >
-                  {photo.name.name}
+                  {photo.name && photo.name.name}
                 </Typography>
                 <CardActions>
                   <Button
