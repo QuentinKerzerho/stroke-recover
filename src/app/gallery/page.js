@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import ResponsiveAppBar from "@/src/components/ResponsiveAppBar";
+import FormDialog from "@/src/components/FormDialog";
 import { ListPhoto } from "@/src/datas/ListPhoto";
 import SeeTheSlidshow from "@/src/components/SeeTheSlidshow";
 import BasicButtons from "@/src/components/BasicButtons";
@@ -57,7 +58,7 @@ export default async function Gallery() {
                 justifyContent: "center",
               }}
             >
-              <BasicButtons name="Ajouter des photos" to="/" />
+              <FormDialog />
             </Box>
           </Container>
         </Box>

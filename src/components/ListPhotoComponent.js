@@ -19,7 +19,7 @@ export default async function ListPhotoComponent({ feed }) {
   };
 
   return (
-    <Container sx={{ pt: 8 }} maxWidth="md">
+    <Container sx={{ pt: 3 }} maxWidth="md">
       {/* End hero unit */}
       <Grid container>
         {feed.map((photo) => (
