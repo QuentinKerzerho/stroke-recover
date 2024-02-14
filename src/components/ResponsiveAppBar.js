@@ -98,6 +98,11 @@ function ResponsiveAppBar() {
                   <Typography textAlign="center">Home</Typography>
                 </MenuItem>
               </Link>
+              <Link href="/gallery">
+                <MenuItem key={Contact} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">Gallery</Typography>
+                </MenuItem>
+              </Link>
               <Link href="/contact">
                 <MenuItem key={Contact} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">Contact</Typography>
@@ -139,6 +144,15 @@ function ResponsiveAppBar() {
                 sx={{ my: 2, color: "white", display: "block" }}
               >
                 Contact
+              </Button>
+            </Link>
+            <Link href="/gallery">
+              <Button
+                key={Home}
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                Gallery
               </Button>
             </Link>
             <Link href="/">
