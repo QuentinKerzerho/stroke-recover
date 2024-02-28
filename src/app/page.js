@@ -21,7 +21,7 @@ export default function Home() {
           }}
         >
           <BasicButtons name="Lancer" to="/" />
-          <BasicButtons name="Ajouter" to="/gallery" />
+          <BasicButtons name="Gallery" to="/gallery" />
         </Stack>
       </Box>
     </div>

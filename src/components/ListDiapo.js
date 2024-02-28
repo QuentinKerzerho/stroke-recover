@@ -1,56 +1,76 @@
-// "use client";
+"use client";
+import * as React from "react";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import { CardActionArea } from "@mui/material";
+import Container from "@mui/material/Container";
+import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
+import { ClassNames } from "@emotion/react";
+import { Style } from "@mui/icons-material";
+import Grid from "@mui/material/Grid";
+import { useState } from "react";
 
-// import Dialog from "@mui/material/Dialog";
-// import List from "@mui/material/List";
-// import ListItem from "@mui/material/ListItem";
-// import ListItemAvatar from "@mui/material/ListItemAvatar";
-// import ListItemButton from "@mui/material/ListItemButton";
-// import ListItemText from "@mui/material/ListItemText";
-// import DialogTitle from "@mui/material/DialogTitle";
-// import DeleteForeverSharpIcon from "@mui/icons-material/DeleteForeverSharp";
-// import { ListPhoto } from "@/src/datas/ListPhoto";
-// import prisma from "@/lib/prisma";
-// import { PrismaClient } from "@prisma/client";
+const ListDiapo = () => {
+  const [selectedButton, setSelectedButton] = useState(null);
 
-// export default function ListDiapo({ onClose, selectedValue, open, name }) {
-//   const handleClose = () => {
-//     onClose(selectedValue);
-//   };
+  const handleButtonClick = (id) => {
+    if (selectedButton === id) {
+      setSelectedButton(null);
+    } else {
+      setSelectedButton(id);
+    }
+  };
 
-//   return (
-//     <div>
-//       <Dialog onClose={handleClose} open={open}>
-//         <DialogTitle>Liste du diaporama</DialogTitle>
-//         <List sx={{ pt: 0 }}>
-//           {feed.map((card, index) => (
-//             <ListItem disableGutters key={index}>
-//               <ListItemAvatar
-//                 sx={{ display: "flex", justifyContent: "center" }}
-//               >
-//                 {index + 1}
-//               </ListItemAvatar>
-//               <ListItemText
-//                 sx={{
-//                   display: "flex",
-//                   justifyContent: "center",
-//                   width: "50px",
-//                 }}
-//                 primary={card}
-//               />
-//               <ListItemButton
-//                 disableGutters={true}
-//                 sx={{
-//                   display: "flex",
-//                   justifyContent: "center",
-//                   borderRadius: "20px",
-//                 }}
-//               >
-//                 <DeleteForeverSharpIcon sx={{ padding: "0" }} />
-//               </ListItemButton>
-//             </ListItem>
-//           ))}
-//         </List>
-//       </Dialog>
-//     </div>
-//   );
-// }
+  const renderButton = (id, title) => (
+    <Card
+      sx={{
+        margin: "10px",
+        backgroundColor: selectedButton === id ? "#FD853A" : "white",
+        color: selectedButton === id ? "white" : "black",
+      }}
+      onClick={() => handleButtonClick(id)}
+    >
+      <CardActionArea>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {title}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+  );
+
+  return (
+    <Container
+      sx={{
+        pt: 3,
+        display: "flex",
+        justifyContent: "center",
+        alignSelf: "center",
+      }}
+    >
+      <Grid
+        container
+        columns={{ xs: 4, sm: 8, md: 12 }}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          flexWrap: "wrap",
+          pt: 3,
+        }}
+      >
+        {renderButton(1, "Diaporama 1")}
+        {renderButton(2, "Diaporama 2")}
+        {renderButton(3, "Diaporama 3")}
+        {renderButton(4, "Diaporama 4")}
+        {renderButton(5, "Diaporama 5")}
+        {renderButton(6, "Diaporama 6")}
+      </Grid>
+    </Container>
+  );
+};
+
+export default ListDiapo;

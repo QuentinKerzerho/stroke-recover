@@ -9,6 +9,7 @@ import SeeTheSlidshow from "@/src/components/SeeTheSlidshow";
 import BasicButtons from "@/src/components/BasicButtons";
 import ListPhotoComponent from "@/src/components/ListPhotoComponent";
 import prisma from "@/lib/prisma";
+import ListDiapo from "@/src/components/ListDiapo";
 
 // ----------------------------------------------------------------------------------------------------------
 export default async function Gallery() {
@@ -26,6 +27,8 @@ export default async function Gallery() {
       <main>
         <ResponsiveAppBar />
         {/* <SeeTheSlidshow /> */}
+
+        <ListDiapo />
         <Box
           sx={{
             bgcolor: "background.paper",
