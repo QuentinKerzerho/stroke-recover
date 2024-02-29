@@ -4,9 +4,6 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import ResponsiveAppBar from "@/src/components/ResponsiveAppBar";
 import FormDialog from "@/src/components/FormDialog";
-import { ListPhoto } from "@/src/datas/ListPhoto";
-import SeeTheSlidshow from "@/src/components/SeeTheSlidshow";
-import BasicButtons from "@/src/components/BasicButtons";
 import ListPhotoComponent from "@/src/components/ListPhotoComponent";
 import prisma from "@/lib/prisma";
 import ListDiapo from "@/src/components/ListDiapo";
@@ -22,13 +19,14 @@ export default async function Gallery() {
   const handleChildVariable = (variable) => {
     setArticles(variable);
   };
+
   return (
     <div>
       <main>
         <ResponsiveAppBar />
         {/* <SeeTheSlidshow /> */}
 
-        <ListDiapo />
+        <ListDiapo feed={feed} />
         <Box
           sx={{
             bgcolor: "background.paper",

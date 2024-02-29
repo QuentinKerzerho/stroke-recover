@@ -2,18 +2,13 @@
 import * as React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import { ClassNames } from "@emotion/react";
-import { Style } from "@mui/icons-material";
 import Grid from "@mui/material/Grid";
 import { useState } from "react";
 
-const ListDiapo = () => {
+const ListDiapo = ({ feed }) => {
   const [selectedButton, setSelectedButton] = useState(null);
 
   const handleButtonClick = (id) => {
@@ -22,6 +17,10 @@ const ListDiapo = () => {
     } else {
       setSelectedButton(id);
     }
+  };
+
+  const handleButtonPlusClick = (id) => {
+    renderButton(6, "Diaporama 6");
   };
 
   const renderButton = (id, title) => (
@@ -35,7 +34,37 @@ const ListDiapo = () => {
     >
       <CardActionArea>
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="div"
+            sx={{ marginBottom: "0px" }}
+          >
+            {" "}
+            {title}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+  );
+
+  const renderButtonPlus = (id, title) => (
+    <Card
+      sx={{
+        margin: "10px",
+        backgroundColor: "#FD853A",
+        color: "white",
+      }}
+      onClick={() => handleButtonPlusClick(id)}
+    >
+      <CardActionArea>
+        <CardContent>
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="div"
+            sx={{ marginBottom: "0px" }}
+          >
             {title}
           </Typography>
         </CardContent>
@@ -50,6 +79,7 @@ const ListDiapo = () => {
         display: "flex",
         justifyContent: "center",
         alignSelf: "center",
+        marginBottom: "0px",
       }}
     >
       <Grid
@@ -67,7 +97,7 @@ const ListDiapo = () => {
         {renderButton(3, "Diaporama 3")}
         {renderButton(4, "Diaporama 4")}
         {renderButton(5, "Diaporama 5")}
-        {renderButton(6, "Diaporama 6")}
+        {renderButtonPlus(6, "+")}
       </Grid>
     </Container>
   );
