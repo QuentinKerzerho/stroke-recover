@@ -12,7 +12,7 @@ import { Image } from "@mui/icons-material";
 import { ImageListItem } from "@mui/material";
 import { ImageList } from "@mui/material";
 
-export default async function ListPhotoComponent({ feed }) {
+export default async function ListPhotoComponent({ photos }) {
   const addToList = (card) => {
     setLocalArticles((prevArticles) => [...prevArticles, card]);
     setArticles((prevArticles) => [...prevArticles, card]);
@@ -22,7 +22,7 @@ export default async function ListPhotoComponent({ feed }) {
     <Container sx={{ pt: 3 }} maxWidth="md">
       {/* End hero unit */}
       <Grid container>
-        {feed.map((photo) => (
+        {photos.map((photo) => (
           <Grid key={photo.id} xs={12} sm={6} md={4}>
             <Card
               sx={{

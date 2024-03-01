@@ -1,4 +1,5 @@
 "use client";
+
 import * as React from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -8,7 +9,11 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import { useState } from "react";
 
-const ListDiapo = ({ feed }) => {
+const ListDiapo = ({ diapos, newDiapo }) => {
+  // État pour suivre si le bouton + a été cliqué
+  const [isButtonPlusClicked, setIsButtonPlusClicked] = useState(false);
+
+  // Bouton diaporama selectionné
   const [selectedButton, setSelectedButton] = useState(null);
 
   const handleButtonClick = (id) => {
@@ -19,8 +24,11 @@ const ListDiapo = ({ feed }) => {
     }
   };
 
+  // bouton plus
   const handleButtonPlusClick = (id) => {
+    setIsButtonPlusClicked(true);
     renderButton(6, "Diaporama 6");
+    newDiapo();
   };
 
   const renderButton = (id, title) => (
@@ -55,7 +63,9 @@ const ListDiapo = ({ feed }) => {
         backgroundColor: "#FD853A",
         color: "white",
       }}
-      onClick={() => handleButtonPlusClick(id)}
+      onClick={() => {
+        handleButtonPlusClick(id);
+      }}
     >
       <CardActionArea>
         <CardContent>
@@ -92,11 +102,7 @@ const ListDiapo = ({ feed }) => {
           pt: 3,
         }}
       >
-        {renderButton(1, "Diaporama 1")}
-        {renderButton(2, "Diaporama 2")}
-        {renderButton(3, "Diaporama 3")}
-        {renderButton(4, "Diaporama 4")}
-        {renderButton(5, "Diaporama 5")}
+        {isButtonPlusClicked && renderButton(1, "Diaporama 1")}
         {renderButtonPlus(6, "+")}
       </Grid>
     </Container>

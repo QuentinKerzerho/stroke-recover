@@ -7,14 +7,15 @@ import FormDialog from "@/src/components/FormDialog";
 import ListPhotoComponent from "@/src/components/ListPhotoComponent";
 import prisma from "@/lib/prisma";
 import ListDiapo from "@/src/components/ListDiapo";
+import { getLatestPhoto } from "@/src/query/photo.query";
+import { getLatestDiapo } from "@/src/query/diapo.query";
+import { createDiapo } from "@/src/query/diapo.query";
 
 // ----------------------------------------------------------------------------------------------------------
 export default async function Gallery() {
-  const feed = await prisma.photo.findMany({
-    include: {
-      name: true, // Inclure les données liées à 'photos'
-    },
-  });
+  const photos = await getLatestPhoto();
+  const diapos = await getLatestDiapo();
+  const newDiapo = await createDiapo();
 
   const handleChildVariable = (variable) => {
     setArticles(variable);
@@ -25,8 +26,17 @@ export default async function Gallery() {
       <main>
         <ResponsiveAppBar />
         {/* <SeeTheSlidshow /> */}
-
-        <ListDiapo feed={feed} />
+        <Typography
+          component="h1"
+          variant="h2"
+          align="center"
+          color="text.primary"
+          sx={{ marginTop: "1em" }}
+          gutterBottom
+        >
+          Diaporama
+        </Typography>
+        <ListDiapo diapos={diapos} newDiapo={newDiapo} />
         <Box
           sx={{
             bgcolor: "background.paper",
@@ -63,7 +73,7 @@ export default async function Gallery() {
             </Box>
           </Container>
         </Box>
-        <ListPhotoComponent feed={feed} />
+        <ListPhotoComponent photos={photos} />
       </main>
     </div>
   );
