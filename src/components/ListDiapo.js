@@ -11,7 +11,7 @@ import { useState } from "react";
 
 const ListDiapo = ({ diapos, newDiapo }) => {
   // État pour suivre si le bouton + a été cliqué
-  const [isButtonPlusClicked, setIsButtonPlusClicked] = useState(false);
+  // const [isButtonPlusClicked, setIsButtonPlusClicked] = useState(false);
 
   // Bouton diaporama selectionné
   const [selectedButton, setSelectedButton] = useState(null);
@@ -25,11 +25,9 @@ const ListDiapo = ({ diapos, newDiapo }) => {
   };
 
   // bouton plus
-  const handleButtonPlusClick = (id) => {
-    setIsButtonPlusClicked(true);
-    renderButton(6, "Diaporama 6");
-    newDiapo();
-  };
+  // const handleButtonPlusClick = (id) => {
+  //   setIsButtonPlusClicked(true);
+  // };
 
   const renderButton = (id, title) => (
     <Card
@@ -102,7 +100,7 @@ const ListDiapo = ({ diapos, newDiapo }) => {
           pt: 3,
         }}
       >
-        {isButtonPlusClicked && renderButton(1, "Diaporama 1")}
+        {diapos.map((x, index) => renderButton(diapos.id, "Diaporama" + index))}
         {renderButtonPlus(6, "+")}
       </Grid>
     </Container>
