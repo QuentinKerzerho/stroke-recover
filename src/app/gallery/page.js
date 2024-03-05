@@ -15,7 +15,10 @@ import { createDiapo } from "@/src/query/diapo.query";
 export default async function Gallery() {
   const photos = await getLatestPhoto();
   const diapos = await getLatestDiapo();
-  const newDiapo = await createDiapo();
+  const test = async () => {
+    "use server";
+    await createDiapo();
+  };
 
   const handleChildVariable = (variable) => {
     setArticles(variable);
@@ -36,7 +39,7 @@ export default async function Gallery() {
         >
           Diaporama
         </Typography>
-        <ListDiapo diapos={diapos} newDiapo={newDiapo} />
+        <ListDiapo diapos={diapos} newDiapo={test} />
         <Box
           sx={{
             bgcolor: "background.paper",
