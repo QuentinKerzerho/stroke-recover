@@ -9,13 +9,14 @@ import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import { useState } from "react";
 
-const ListDiapo = ({ diapos, newDiapo }) => {
-  // État pour suivre si le bouton + a été cliqué
-  const [isButtonPlusClicked, setIsButtonPlusClicked] = useState(false);
+const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
+  // État pour suivre l'affichage es diapositives
+  const [diapos, setDiapos] = useState(initialDiapos);
 
   // Bouton diaporama selectionné
   const [selectedButton, setSelectedButton] = useState(null);
 
+  // Gestion du clic sur un bouton
   const handleButtonClick = (id) => {
     console.log(id);
     if (selectedButton === id) {
@@ -25,13 +26,25 @@ const ListDiapo = ({ diapos, newDiapo }) => {
     }
   };
 
-  // bouton plus
-  const handleButtonPlusClick = (id) => {
-    console.log("button plus clicked");
-    setIsButtonPlusClicked(true);
-    newDiapo();
+  // Gestion du clic sur le bouton +
+  const handleButtonPlusClick = () => {
+    const diapo = newDiapo(); // Remplacez ceci par votre logique de création de diapo
+    setDiapos([...diapos, diapo]);
   };
 
+  deleteDia = (id) => {
+    return diapos.filter((diapo) => diapo.id !== id);
+  };
+
+  // Gestion du clic sur le bouton -
+  const handleButtonMinusClick = () => {
+    console.log(selectedButton);
+    const deleteD = deleteDia(selectedButton); // Remplacez ceci par votre logique de delete de diapo
+    setDiapos(deleteD);
+    setSelectedButton(null);
+  };
+
+  // Rendu d'un bouton
   const renderButton = (id, title) => {
     return (
       <Card
@@ -59,6 +72,7 @@ const ListDiapo = ({ diapos, newDiapo }) => {
     );
   };
 
+  // Rendu du bouton +
   const renderButtonPlus = (id, title) => (
     <Card
       sx={{
@@ -68,6 +82,33 @@ const ListDiapo = ({ diapos, newDiapo }) => {
       }}
       onClick={() => {
         handleButtonPlusClick(id);
+      }}
+    >
+      <CardActionArea>
+        <CardContent>
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="div"
+            sx={{ marginBottom: "0px" }}
+          >
+            {title}
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+  );
+
+  // Rendu du bouton -
+  const renderButtonMinus = (id, title) => (
+    <Card
+      sx={{
+        margin: "10px",
+        backgroundColor: "#FD853A",
+        color: "white",
+      }}
+      onClick={() => {
+        handleButtonMinusClick(id);
       }}
     >
       <CardActionArea>
@@ -105,10 +146,9 @@ const ListDiapo = ({ diapos, newDiapo }) => {
           pt: 3,
         }}
       >
-        {diapos.map((x, index) =>
-          renderButton(diapos[index].id, "Diaporama" + " " + index)
-        )}
+        {diapos.map((x, index) => renderButton(x.id, "Diaporama" + " " + x.id))}
         {renderButtonPlus(6, "+")}
+        {renderButtonMinus(7, "-")}
       </Grid>
     </Container>
   );

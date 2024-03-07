@@ -10,12 +10,18 @@ import ListDiapo from "@/src/components/ListDiapo";
 import { getLatestPhoto } from "@/src/query/photo.query";
 import { getLatestDiapo } from "@/src/query/diapo.query";
 import { createDiapo } from "@/src/query/diapo.query";
+import { deleteDiapo } from "@/src/query/diapo.query";
 
 // ----------------------------------------------------------------------------------------------------------
 export default async function Gallery() {
   const photos = await getLatestPhoto();
   const diapos = await getLatestDiapo();
-  const test = async () => {
+  const deleteDia = async (id) => {
+    "use server";
+    await deleteDiapo(id);
+  };
+
+  const newDiapo = async () => {
     "use server";
     await createDiapo();
   };
@@ -39,7 +45,7 @@ export default async function Gallery() {
         >
           Diaporama
         </Typography>
-        <ListDiapo diapos={diapos} newDiapo={test} />
+        <ListDiapo diapos={diapos} newDiapo={newDiapo} deleteDia={deleteDia} />
         <Box
           sx={{
             bgcolor: "background.paper",
