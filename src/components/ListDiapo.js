@@ -17,6 +17,7 @@ const ListDiapo = ({ diapos, newDiapo }) => {
   const [selectedButton, setSelectedButton] = useState(null);
 
   const handleButtonClick = (id) => {
+    console.log(id);
     if (selectedButton === id) {
       setSelectedButton(null);
     } else {
@@ -31,30 +32,32 @@ const ListDiapo = ({ diapos, newDiapo }) => {
     newDiapo();
   };
 
-  const renderButton = (id, title) => (
-    <Card
-      sx={{
-        margin: "10px",
-        backgroundColor: selectedButton === id ? "#FD853A" : "white",
-        color: selectedButton === id ? "white" : "black",
-      }}
-      onClick={() => handleButtonClick(id)}
-    >
-      <CardActionArea>
-        <CardContent>
-          <Typography
-            gutterBottom
-            variant="h5"
-            component="div"
-            sx={{ marginBottom: "0px" }}
-          >
-            {" "}
-            {title}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-  );
+  const renderButton = (id, title) => {
+    return (
+      <Card
+        sx={{
+          margin: "10px",
+          backgroundColor: selectedButton === id ? "#FD853A" : "white",
+          color: selectedButton === id ? "white" : "black",
+        }}
+        onClick={() => handleButtonClick(id)}
+      >
+        <CardActionArea>
+          <CardContent>
+            <Typography
+              gutterBottom
+              variant="h5"
+              component="div"
+              sx={{ marginBottom: "0px" }}
+            >
+              {" "}
+              {title}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
+    );
+  };
 
   const renderButtonPlus = (id, title) => (
     <Card
@@ -103,7 +106,7 @@ const ListDiapo = ({ diapos, newDiapo }) => {
         }}
       >
         {diapos.map((x, index) =>
-          renderButton(diapos.id, "Diaporama" + " " + index)
+          renderButton(diapos[index].id, "Diaporama" + " " + index)
         )}
         {renderButtonPlus(6, "+")}
       </Grid>
