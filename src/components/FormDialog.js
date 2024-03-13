@@ -39,7 +39,6 @@ export default function FormDialog() {
       </Button>
       <Dialog
         maxWidth="sm"
-        fullWidth="true"
         open={open}
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
@@ -52,7 +51,6 @@ export default function FormDialog() {
             id="name"
             label="Nom de la photo"
             type="text"
-            fullWidth
           />
         </DialogContent>
         <DialogContent>
@@ -61,7 +59,6 @@ export default function FormDialog() {
             id="name"
             label="Url de la photo"
             type="text"
-            fullWidth
             className="mt-0"
           />
         </DialogContent>

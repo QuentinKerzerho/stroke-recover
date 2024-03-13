@@ -32,22 +32,20 @@ const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
     setDiapos([...diapos, diapo]);
   };
 
-  deleteDia = (id) => {
-    return diapos.filter((diapo) => diapo.id !== id);
-  };
-
   // Gestion du clic sur le bouton -
   const handleButtonMinusClick = () => {
-    console.log(selectedButton);
-    const deleteD = deleteDia(selectedButton); // Remplacez ceci par votre logique de delete de diapo
-    setDiapos(deleteD);
+    console.log(selectedButton); // Remplacez ceci par votre logique de delete de diapo
+    deleteDia(selectedButton);
+    setDiapos(diapos.filter((diapo) => diapo.id !== selectedButton));
+    console.log(diapos);
     setSelectedButton(null);
   };
 
   // Rendu d'un bouton
-  const renderButton = (id, title) => {
+  const renderButton = (id, title, key) => {
     return (
       <Card
+        key={key}
         sx={{
           margin: "10px",
           backgroundColor: selectedButton === id ? "#FD853A" : "white",
@@ -137,8 +135,11 @@ const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
       }}
     >
       <Grid
+        item
+        xs={4}
+        sm={8}
+        md={12}
         container
-        columns={{ xs: 4, sm: 8, md: 12 }}
         sx={{
           display: "flex",
           justifyContent: "center",
@@ -146,7 +147,9 @@ const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
           pt: 3,
         }}
       >
-        {diapos.map((x, index) => renderButton(x.id, "Diaporama" + " " + x.id))}
+        {diapos.map((x, index) =>
+          renderButton(x.id, "Diaporama" + " " + x.id, x.id)
+        )}
         {renderButtonPlus(6, "+")}
         {renderButtonMinus(7, "-")}
       </Grid>

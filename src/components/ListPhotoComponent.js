@@ -1,4 +1,5 @@
 import Card from "@mui/material/Card";
+Grid;
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import { ListPhoto } from "@/src/datas/ListPhoto";
@@ -23,7 +24,7 @@ export default async function ListPhotoComponent({ photos }) {
       {/* End hero unit */}
       <Grid container>
         {photos.map((photo) => (
-          <Grid key={photo.id} xs={12} sm={6} md={4}>
+          <Grid key={photo.id} item xs={12} sm={6} md={4}>
             <Card
               sx={{
                 margin: "10px",
