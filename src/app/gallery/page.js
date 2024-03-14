@@ -15,6 +15,7 @@ import { deleteDiapo } from "@/src/query/diapo.query";
 // ----------------------------------------------------------------------------------------------------------
 export default async function Gallery() {
   const photos = await getLatestPhoto();
+
   const diapos = await getLatestDiapo();
   const deleteDia = async (id) => {
     "use server";
