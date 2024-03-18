@@ -1,6 +1,6 @@
 import prisma from "@/lib/prisma";
 
-export const getLatestDiapo = async () =>
+export const getLatestDiapo = () =>
   prisma.diapo.findMany({
     include: {
       photos: true, // Inclure les données liées à 'photos'
