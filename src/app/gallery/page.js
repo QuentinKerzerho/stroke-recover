@@ -11,10 +11,23 @@ import { getLatestPhoto } from "@/src/query/photo.query";
 import { getLatestDiapo } from "@/src/query/diapo.query";
 import { createDiapo } from "@/src/query/diapo.query";
 import { deleteDiapo } from "@/src/query/diapo.query";
+import { createPhoto } from "@/src/query/photo.query";
+import { createName } from "@/src/query/name.query";
+import { FormatAlignCenterSharp } from "@mui/icons-material";
 
 // ----------------------------------------------------------------------------------------------------------
 export default async function Gallery() {
   const photos = await getLatestPhoto();
+
+  const newPhoto = async (data) => {
+    "use server";
+    await createPhoto(data);
+  };
+
+  const newName = async (data) => {
+    "use server";
+    await createName(data);
+  };
 
   const diapos = await getLatestDiapo();
   const deleteDia = async (id) => {
@@ -35,7 +48,6 @@ export default async function Gallery() {
     <div>
       <main>
         <ResponsiveAppBar />
-        {/* <SeeTheSlidshow /> */}
         <Typography
           component="h1"
           variant="h2"
@@ -79,7 +91,7 @@ export default async function Gallery() {
                 justifyContent: "center",
               }}
             >
-              <FormDialog />
+              <FormDialog newPhoto={newPhoto} newName={newName} />
             </Box>
           </Container>
         </Box>

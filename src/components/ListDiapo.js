@@ -18,7 +18,6 @@ const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
 
   // Gestion du clic sur un bouton
   const handleButtonClick = (id) => {
-    console.log(id);
     if (selectedButton === id) {
       setSelectedButton(null);
     } else {
@@ -34,10 +33,8 @@ const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
 
   // Gestion du clic sur le bouton -
   const handleButtonMinusClick = () => {
-    console.log(selectedButton); // Remplacez ceci par votre logique de delete de diapo
     deleteDia(selectedButton);
     setDiapos(diapos.filter((diapo) => diapo.id !== selectedButton));
-    console.log(diapos);
     setSelectedButton(null);
   };
 

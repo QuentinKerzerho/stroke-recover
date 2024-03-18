@@ -26,6 +26,7 @@ export default async function ListPhotoComponent({ photos }) {
         {photos.map((photo) => (
           <Grid key={photo.id} item xs={12} sm={6} md={4}>
             <Card
+              key={photo.id}
               sx={{
                 margin: "10px",
                 display: "flex",

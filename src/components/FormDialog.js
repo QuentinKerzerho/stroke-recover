@@ -8,9 +8,27 @@ import DialogActions from "@mui/material//DialogActions";
 import DialogContent from "@mui/material//DialogContent";
 import DialogContentText from "@mui/material//DialogContentText";
 import DialogTitle from "@mui/material//DialogTitle";
+import { useState } from "react";
 
-export default function FormDialog() {
+export default function FormDialog({ newPhoto, newName }) {
+  const [name, setName] = React.useState("");
+  const [url, setUrl] = React.useState("");
+
   const [open, setOpen] = React.useState(false);
+
+  const handleNameChange = (event) => {
+    setName(event.target.value);
+  };
+  const handleUrlChange = (event) => {
+    setUrl(event.target.value);
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(name, url);
+    newPhoto(url);
+    newName(name);
+    handleClose();
+  };
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -18,6 +36,8 @@ export default function FormDialog() {
 
   const handleClose = () => {
     setOpen(false);
+    setName("");
+    setUrl("");
   };
 
   return (
@@ -48,18 +68,22 @@ export default function FormDialog() {
           <TextField
             autoFocus
             margin="dense"
-            id="name"
+            id="photoName"
             label="Nom de la photo"
             type="text"
+            value={name}
+            onChange={handleNameChange}
           />
         </DialogContent>
         <DialogContent>
           <TextField
             autoFocus
-            id="name"
+            id="photoUrl"
             label="Url de la photo"
             type="text"
             className="mt-0"
+            value={url}
+            onChange={handleUrlChange}
           />
         </DialogContent>
         <DialogActions className="flex flex-row justify-center mb-3">
@@ -74,14 +98,15 @@ export default function FormDialog() {
             Cancel
           </Button>
           <Button
-            onClick={handleClose}
             style={{ backgroundColor: "#FD853A" }}
             sx={{
               fontFamily: "Holtwood One Sc",
             }}
             variant="contained"
+            type="submit"
+            onClick={handleSubmit}
           >
-            Subscribe
+            Submit
           </Button>
         </DialogActions>
       </Dialog>

@@ -1,4 +1,5 @@
 import prisma from "@/lib/prisma";
+import { Prisma } from "@prisma/client";
 
 export const getLatestDiapo = () =>
   prisma.diapo.findMany({

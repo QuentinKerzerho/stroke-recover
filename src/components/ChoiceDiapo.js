@@ -12,7 +12,6 @@ import Typography from "@mui/material/Typography";
 import { useState } from "react";
 
 export default function TestTrucHome({ diapos }) {
-  console.log(diapos);
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (newOpen) => {
@@ -25,7 +24,6 @@ export default function TestTrucHome({ diapos }) {
 
   // Gestion du clic sur un bouton
   const handleButtonClick = (id) => {
-    console.log(id);
     if (selectedButton === id) {
       setSelectedButton(null);
     } else {
