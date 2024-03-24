@@ -12,7 +12,7 @@ import { useState } from "react";
 
 export default function FormDialog({ newPhoto, newName }) {
   const [name, setName] = React.useState("");
-  const [url, setUrl] = React.useState("");
+  const [photoUrl, setUrl] = React.useState("");
 
   const [open, setOpen] = React.useState(false);
 
@@ -24,9 +24,8 @@ export default function FormDialog({ newPhoto, newName }) {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(name, url);
-    newPhoto(url);
-    newName(name);
+    console.log(name, photoUrl);
+    newPhoto(photoUrl, name);
     handleClose();
   };
 
@@ -82,7 +81,7 @@ export default function FormDialog({ newPhoto, newName }) {
             label="Url de la photo"
             type="text"
             className="mt-0"
-            value={url}
+            value={photoUrl}
             onChange={handleUrlChange}
           />
         </DialogContent>

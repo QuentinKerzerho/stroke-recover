@@ -1,10 +1,12 @@
 import prisma from "@/lib/prisma";
 
-export const createName = (data) => {
+export const createName = async (data) => {
   const { name } = data;
-  prisma.photo.create({
+  const createdName = prisma.photo.create({
     data: {
       name: name,
     },
   });
+  await prisma.$disconnect();
+  return createdName;
 };

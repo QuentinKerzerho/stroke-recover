@@ -7,11 +7,11 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
   // État pour suivre l'affichage es diapositives
-  const [diapos, setDiapos] = useState(initialDiapos);
+  const [diapos, setDiapos] = useState([...initialDiapos]);
 
   // Bouton diaporama selectionné
   const [selectedButton, setSelectedButton] = useState(null);
@@ -26,9 +26,9 @@ const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
   };
 
   // Gestion du clic sur le bouton +
-  const handleButtonPlusClick = () => {
-    const diapo = newDiapo(); // Remplacez ceci par votre logique de création de diapo
-    setDiapos([...diapos, diapo]);
+  const handleButtonPlusClick = async () => {
+    const diapo = await newDiapo(); // Remplacez ceci par votre logique de création de diapo
+    setDiapos((prevDiapos) => [...prevDiapos, diapo]);
   };
 
   // Gestion du clic sur le bouton -
@@ -70,6 +70,7 @@ const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
   // Rendu du bouton +
   const renderButtonPlus = (id, title) => (
     <Card
+      key={id}
       sx={{
         margin: "10px",
         backgroundColor: "#FD853A",
@@ -97,6 +98,7 @@ const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
   // Rendu du bouton -
   const renderButtonMinus = (id, title) => (
     <Card
+      key={id}
       sx={{
         margin: "10px",
         backgroundColor: "#FD853A",
@@ -145,7 +147,7 @@ const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
         }}
       >
         {diapos.map((x, index) =>
-          renderButton(x.id, "Diaporama" + " " + x.id, x.id)
+          renderButton(x.id, "Diaporama" + " " + (index + 1), x.index)
         )}
         {renderButtonPlus(6, "+")}
         {renderButtonMinus(7, "-")}
