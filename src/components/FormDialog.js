@@ -11,10 +11,12 @@ import DialogTitle from "@mui/material//DialogTitle";
 import { useState } from "react";
 
 export default function FormDialog({ newPhoto, newName }) {
-  const [name, setName] = React.useState("");
+  const [nameData, setName] = React.useState("");
   const [photoUrl, setUrl] = React.useState("");
 
   const [open, setOpen] = React.useState(false);
+
+  const nameDataTotal = { name: nameData };
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -24,8 +26,8 @@ export default function FormDialog({ newPhoto, newName }) {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(name, photoUrl);
-    newPhoto(photoUrl, name);
+    console.log(nameData, photoUrl);
+    newPhoto(photoUrl, nameDataTotal);
     handleClose();
   };
 
@@ -70,7 +72,7 @@ export default function FormDialog({ newPhoto, newName }) {
             id="photoName"
             label="Nom de la photo"
             type="text"
-            value={name}
+            value={nameData}
             onChange={handleNameChange}
           />
         </DialogContent>

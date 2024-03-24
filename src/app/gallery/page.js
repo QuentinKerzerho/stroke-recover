@@ -17,9 +17,9 @@ import { createPhoto } from "@/src/query/photo.query";
 export default async function Gallery() {
   const photos = await getLatestPhoto();
 
-  const newPhoto = async (data) => {
+  const newPhoto = async (photoUrl, nameData) => {
     "use server";
-    return await createPhoto(data);
+    return await createPhoto({ photoUrl, nameData });
   };
 
   const diapos = await getLatestDiapo();

@@ -27,7 +27,7 @@ const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
 
   // Gestion du clic sur le bouton +
   const handleButtonPlusClick = async () => {
-    const diapo = await newDiapo(); // Remplacez ceci par votre logique de création de diapo
+    const diapo = await newDiapo();
     setDiapos((prevDiapos) => [...prevDiapos, diapo]);
   };
 
