@@ -11,7 +11,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
 
-export default function TestTrucHome({ diapos }) {
+export default function ChoiceDiapo({ diapos }) {
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (newOpen) => {
@@ -37,6 +37,7 @@ export default function TestTrucHome({ diapos }) {
         key={key}
         sx={{
           margin: "10px",
+          minWidth: "180px",
           backgroundColor: selectedButton === id ? "#FD853A" : "white",
           color: selectedButton === id ? "white" : "black",
         }}
@@ -61,10 +62,14 @@ export default function TestTrucHome({ diapos }) {
 
   const DrawerList = (
     <Box
-      sx={{ width: 1000 }}
+      sx={{
+        padding: "10px",
+        overflow: "auto",
+      }}
       onClick={toggleDrawer(false)}
       display="flex"
       alignItems="center"
+      justifyContent="center"
     >
       {diapos.map((x, index) =>
         renderButton(x.id, "Diaporama" + " " + (index + 1), x.index)

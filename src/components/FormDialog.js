@@ -10,13 +10,13 @@ import DialogContentText from "@mui/material//DialogContentText";
 import DialogTitle from "@mui/material//DialogTitle";
 import { useState } from "react";
 
-export default function FormDialog({ newPhoto, newName }) {
+export default function FormDialog({ newPhoto, photos }) {
   const [nameData, setName] = React.useState("");
   const [photoUrl, setUrl] = React.useState("");
-
   const [open, setOpen] = React.useState(false);
-
   const nameDataTotal = { name: nameData };
+
+  const [localPhoto, setLocalPhoto] = useState([...photos]);
 
   const handleNameChange = (event) => {
     setName(event.target.value);
@@ -24,10 +24,11 @@ export default function FormDialog({ newPhoto, newName }) {
   const handleUrlChange = (event) => {
     setUrl(event.target.value);
   };
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     console.log(nameData, photoUrl);
-    newPhoto(photoUrl, nameDataTotal);
+    const createdPhoto = await newPhoto(photoUrl, nameDataTotal);
+    setLocalPhoto((prevPhotos) => [...prevPhotos, createdPhoto]);
     handleClose();
   };
 

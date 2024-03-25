@@ -1,5 +1,6 @@
+"use client";
+
 import Card from "@mui/material/Card";
-Grid;
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import { ListPhoto } from "@/src/datas/ListPhoto";
@@ -12,26 +13,28 @@ import React from "react";
 import { Image } from "@mui/icons-material";
 import { ImageListItem } from "@mui/material";
 import { ImageList } from "@mui/material";
+import { useState } from "react";
 
-export default async function ListPhotoComponent({ photos }) {
+export default function ListPhotoComponent({ photos }) {
   const addToList = (card) => {
     setLocalArticles((prevArticles) => [...prevArticles, card]);
     setArticles((prevArticles) => [...prevArticles, card]);
   };
 
   return (
-    <Container sx={{ pt: 3 }} maxWidth="md">
+    <Container sx={{ pt: 3, pb: 3 }}>
       {/* End hero unit */}
-      <Grid container>
+      <Grid container spacing={6}>
         {photos.map((photo) => (
-          <Grid key={photo.id} item xs={12} sm={6} md={4}>
+          <Grid key={photo.id} item xs={12} sm={6} md={3}>
             <Card
               key={photo.id}
               sx={{
-                margin: "10px",
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "flex-end",
+                justifyContent: "center",
+                width: "100%",
+                height: "100%",
               }}
             >
               <CardContent
@@ -39,7 +42,7 @@ export default async function ListPhotoComponent({ photos }) {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
-                  justifyContent: "flex-end",
+                  justifyContent: "flex-start",
                 }}
               >
                 <CardMedia
@@ -48,20 +51,21 @@ export default async function ListPhotoComponent({ photos }) {
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "center",
+                    width: "100%",
+                    height: "250px",
                   }}
                   component="img"
-                  height="50"
-                  image={photo.url}
+                  src={photo.url}
                   alt="name"
                 />
 
                 <Typography
-                  sx={{ marginTop: "40px" }}
+                  sx={{ marginTop: "40px", marginBottom: "30px" }}
                   gutterBottom
                   variant="h5"
                   component="h2"
                 >
-                  {photo.name && photo.name.name}
+                  {photo.name.name}
                 </Typography>
                 <CardActions>
                   <Button

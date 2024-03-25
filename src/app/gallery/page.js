@@ -84,7 +84,7 @@ export default async function Gallery() {
                 justifyContent: "center",
               }}
             >
-              <FormDialog newPhoto={newPhoto} />
+              <FormDialog newPhoto={newPhoto} photos={photos} />
             </Box>
           </Container>
         </Box>

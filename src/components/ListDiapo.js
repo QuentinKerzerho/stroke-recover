@@ -8,6 +8,8 @@ import { CardActionArea } from "@mui/material";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
 import { useState, useEffect } from "react";
+import { Divider } from "@mui/material";
+import Box from "@mui/material/Box";
 
 const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
   // État pour suivre l'affichage es diapositives
@@ -45,6 +47,7 @@ const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
         key={key}
         sx={{
           margin: "10px",
+          minWidth: "180px",
           backgroundColor: selectedButton === id ? "#FD853A" : "white",
           color: selectedButton === id ? "white" : "black",
         }}
@@ -72,6 +75,7 @@ const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
     <Card
       key={id}
       sx={{
+        width: "170px",
         margin: "10px",
         backgroundColor: "#FD853A",
         color: "white",
@@ -86,7 +90,10 @@ const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
             gutterBottom
             variant="h5"
             component="div"
-            sx={{ marginBottom: "0px" }}
+            sx={{
+              marginBottom: "0px",
+              textAlign: "center",
+            }}
           >
             {title}
           </Typography>
@@ -100,6 +107,7 @@ const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
     <Card
       key={id}
       sx={{
+        width: "170px",
         margin: "10px",
         backgroundColor: "#FD853A",
         color: "white",
@@ -114,7 +122,7 @@ const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
             gutterBottom
             variant="h5"
             component="div"
-            sx={{ marginBottom: "0px" }}
+            sx={{ marginBottom: "0px", textAlign: "center" }}
           >
             {title}
           </Typography>
@@ -127,31 +135,27 @@ const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
     <Container
       sx={{
         pt: 3,
-        display: "flex",
-        justifyContent: "center",
-        alignSelf: "center",
-        marginBottom: "0px",
       }}
     >
-      <Grid
-        item
-        xs={4}
-        sm={8}
-        md={12}
-        container
+      <Box sx={{ display: "flex", justifyContent: "center", pb: 3 }}>
+        {renderButtonPlus(6, "Ajouter")}
+        {renderButtonMinus(7, "Supprimer")}
+      </Box>
+      <Divider />
+      <Box
         sx={{
-          display: "flex",
-          justifyContent: "center",
-          flexWrap: "wrap",
-          pt: 3,
+          overflow: "auto",
+          overflowY: "hidden",
+          padding: "10px",
         }}
+        display={"flex"}
+        alignItems={"center"}
+        justifyContent={"center"}
       >
         {diapos.map((x, index) =>
           renderButton(x.id, "Diaporama" + " " + (index + 1), x.index)
         )}
-        {renderButtonPlus(6, "+")}
-        {renderButtonMinus(7, "-")}
-      </Grid>
+      </Box>
     </Container>
   );
 };
