@@ -50,7 +50,12 @@ export default async function Test() {
                   md: "100px",
                   lg: "100px",
                 },
-                marginLeft: "30px",
+                marginLeft: {
+                  xs: "0px",
+                  sm: "0px",
+                  md: "30px",
+                  lg: "30px",
+                },
               }}
             >
               Votre réponse
@@ -58,7 +63,20 @@ export default async function Test() {
             <TextField
               id="outlined-basic"
               variant="standard"
-              sx={{ marginTop: "40px", marginLeft: "30px" }}
+              sx={{
+                marginTop: {
+                  xs: "10px",
+                  sm: "10px",
+                  md: "100px",
+                  lg: "100px",
+                },
+                marginLeft: {
+                  xs: "0px",
+                  sm: "0px",
+                  md: "30px",
+                  lg: "30px",
+                },
+              }}
             />
           </Box>
           <Box
@@ -107,7 +125,18 @@ export default async function Test() {
               Bonne réponse
             </h1>
           </Box>
-          <Box sx={{ display: "flex", justifyContent: "center" }}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              marginTop: {
+                xs: "10px",
+                sm: "10px",
+                md: "0px",
+                lg: "0px",
+              },
+            }}
+          >
             <h1
               style={{
                 fontSize: "20px",
