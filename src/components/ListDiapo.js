@@ -150,7 +150,7 @@ const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
         }}
         display={"flex"}
         alignItems={"center"}
-        justifyContent={"center"}
+        justifyContent={"start"}
       >
         {diapos.map((x, index) =>
           renderButton(x.id, "Diaporama" + " " + (index + 1), x.index)

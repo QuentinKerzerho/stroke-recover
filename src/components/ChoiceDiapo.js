@@ -69,7 +69,7 @@ export default function ChoiceDiapo({ diapos }) {
       onClick={toggleDrawer(false)}
       display="flex"
       alignItems="center"
-      justifyContent="center"
+      justifyContent="start"
     >
       {diapos.map((x, index) =>
         renderButton(x.id, "Diaporama" + " " + (index + 1), x.index)
