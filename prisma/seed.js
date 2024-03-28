@@ -3,6 +3,8 @@ const { faker } = require("@faker-js/faker");
 const { PrismaClient } = require("@prisma/client");
 const prisma = new PrismaClient();
 
+// Cette fonction va générer des données aléatoires pour les utilisateurs et les photos avec faker.js
+
 async function seed() {
   //_______________________________________________________________
   const users = [];
@@ -27,6 +29,8 @@ async function seed() {
     }
   }
 }
+
+// Appelez la fonction seed
 
 seed()
   .catch((error) => {

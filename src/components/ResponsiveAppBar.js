@@ -1,3 +1,5 @@
+// Composant pour la bar de navigation
+
 "use client";
 
 import * as React from "react";
@@ -111,23 +113,6 @@ function ResponsiveAppBar() {
               {/* ))} */}
             </Menu>
           </Box>
-
-          {/* <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href="/"
-            sx={{
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "Holtwood One Sc",
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            Stroke Recover
-          </Typography> */}
           <Box
             sx={{
               flexDirection: "row-reverse",
@@ -135,8 +120,6 @@ function ResponsiveAppBar() {
               display: { xs: "none", sm: "flex", md: "flex" },
             }}
           >
-            {/* {pages.map((page) => ( */}
-
             <Link href="/contact">
               <Button
                 key={Contact}
@@ -164,7 +147,6 @@ function ResponsiveAppBar() {
                 Home
               </Button>
             </Link>
-            {/* ))} */}
           </Box>
         </Toolbar>
       </Container>

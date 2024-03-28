@@ -1,8 +1,9 @@
+// Composant pour afficher les boutons de choix de diaporama dans Home avec le bouton Lancer
+
 "use client";
 
 import * as React from "react";
 import Box from "@mui/material/Box";
-import ListDiapo from "@/src/components/ListDiapo";
 import Button from "@mui/material/Button";
 import Drawer from "@mui/material/Drawer";
 import Card from "@mui/material/Card";
@@ -12,17 +13,18 @@ import Typography from "@mui/material/Typography";
 import { useState } from "react";
 
 export default function ChoiceDiapo({ diapos }) {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(false); // Gestion de l'ouverture du tiroir
 
   const toggleDrawer = (newOpen) => {
+    // Fonction pour ouvrir ou fermer le tiroir
     return () => {
       setOpen(newOpen);
     };
   };
 
-  const [selectedButton, setSelectedButton] = useState(null);
+  const [selectedButton, setSelectedButton] = useState(null); // Gestion du bouton sélectionné
 
-  // Gestion du clic sur un bouton
+  // Gestion du clic sur un bouton diaporama
   const handleButtonClick = (id) => {
     if (selectedButton === id) {
       setSelectedButton(null);
@@ -31,6 +33,7 @@ export default function ChoiceDiapo({ diapos }) {
     }
   };
 
+  // Rendu d'un bouton diaporama
   const renderButton = (id, title, key) => {
     return (
       <Card
@@ -60,6 +63,7 @@ export default function ChoiceDiapo({ diapos }) {
     );
   };
 
+  // Liste des boutons diaporama et rendu du tiroir
   const DrawerList = (
     <Box
       sx={{
@@ -97,6 +101,7 @@ export default function ChoiceDiapo({ diapos }) {
         Lancer
       </Button>
       <Drawer anchor={"bottom"} open={open} onClose={toggleDrawer(false)}>
+        {/* Tiroir pour afficher les diaporamas */}
         {DrawerList}
       </Drawer>
     </div>

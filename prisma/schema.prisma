@@ -13,20 +13,20 @@ datasource db {
 model Name {
     id     String  @id @default(cuid())
     name   String
-    photos Photo[]
+    photos Photo[] // il y a une relation entre name et photo
 }
 
 model Photo {
     id       String  @id @default(cuid())
     url      String?
-    diapo    Diapo?  @relation(fields: [diapo_id], references: [id])
+    diapo    Diapo?  @relation(fields: [diapo_id], references: [id]) // il y a une relation entre photo et diapo
     diapo_id String?
-    name     Name?   @relation(fields: [name_id], references: [id])
+    name     Name?   @relation(fields: [name_id], references: [id]) // il y a une relation entre photo et name
     name_id  String?
 }
 
 model Diapo {
     id         String  @id @default(cuid())
     created_at String?
-    photos     Photo[]
+    photos     Photo[] // il y a une relation entre diapo et photo
 }

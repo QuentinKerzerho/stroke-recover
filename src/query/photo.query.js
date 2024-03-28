@@ -1,5 +1,6 @@
 import prisma from "@/lib/prisma";
 
+// Récupérer toutes les photos
 export const getLatestPhoto = async () => {
   const photos = await prisma.photo.findMany({
     include: {
@@ -11,6 +12,7 @@ export const getLatestPhoto = async () => {
   return photos;
 };
 
+// Créer une photo
 export const createPhoto = async (data) => {
   const { photoUrl, nameData } = data;
   const createdPhoto = await prisma.photo.create({

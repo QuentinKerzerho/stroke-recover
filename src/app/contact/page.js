@@ -5,25 +5,10 @@ import TextField from "@mui/material/TextField";
 import ResponsiveAppBar from "@/src/components/ResponsiveAppBar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles"; // Pour utiliser le thème
+import { theme } from "@/src/theme/theme";
 
 const Contact = () => {
-  const theme = createTheme({
-    palette: {
-      primary: {
-        light: "#FD853A",
-        main: "#FD853A",
-        dark: "#FD853A",
-        contrastText: "#fff",
-      },
-      secondary: {
-        light: "#FD853A",
-        main: "#FD853A",
-        dark: "#FD853A",
-        contrastText: "#000",
-      },
-    },
-  });
   return (
     <div>
       <ThemeProvider theme={theme}>

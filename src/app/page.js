@@ -6,11 +6,6 @@ import TextIntro from "../components/TextIntro";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import React from "react";
-import SwipeableDrawer from "@mui/material/SwipeableDrawer";
-import Divider from "@mui/material/Divider";
-import Drawer from "@mui/material/Drawer";
-import Button from "@mui/material/Button";
-import ListDiapo from "@/src/components/ListDiapo";
 import { getLatestDiapo } from "@/src/query/diapo.query";
 import ChoiceDiapo from "../components/ChoiceDiapo";
 
@@ -19,8 +14,8 @@ export default async function Home() {
 
   return (
     <div>
-      <ResponsiveAppBar />
-      <TextIntro />
+      <ResponsiveAppBar /> {/* Barre de navigation */}
+      <TextIntro /> {/* Texte d'introduction */}
       <Box>
         <Stack
           direction={{ xs: "column", sm: "row" }}
@@ -32,8 +27,9 @@ export default async function Home() {
             alignItems: "center",
           }}
         >
-          <ChoiceDiapo diapos={diaposQuery} />
-          <BasicButtons name="Gallery" to="/gallery" />
+          <ChoiceDiapo diapos={diaposQuery} /> {/* Bouton + liste des diapos */}
+          <BasicButtons name="Gallery" to="/gallery" />{" "}
+          {/* Bouton pour accéder à la galerie */}
         </Stack>
       </Box>
     </div>

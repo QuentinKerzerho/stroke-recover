@@ -1,3 +1,5 @@
+// Composant pour ajouter une photo
+
 "use client";
 
 import React from "react";
@@ -6,54 +8,42 @@ import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material//Dialog";
 import DialogActions from "@mui/material//DialogActions";
 import DialogContent from "@mui/material//DialogContent";
-import DialogContentText from "@mui/material//DialogContentText";
 import DialogTitle from "@mui/material//DialogTitle";
 import { useState } from "react";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
+import { theme } from "@/src/theme/theme";
 
 export default function FormDialog({ newPhoto, photos }) {
-  const theme = createTheme({
-    palette: {
-      primary: {
-        light: "#FD853A",
-        main: "#FD853A",
-        dark: "#FD853A",
-        contrastText: "#fff",
-      },
-      secondary: {
-        light: "#FD853A",
-        main: "#FD853A",
-        dark: "#FD853A",
-        contrastText: "#000",
-      },
-    },
-  });
-  const [nameData, setName] = React.useState("");
-  const [photoUrl, setUrl] = React.useState("");
-  const [open, setOpen] = React.useState(false);
-  const nameDataTotal = { name: nameData };
+  const [nameData, setName] = React.useState(""); // Gestion du nom de la photo
+  const [photoUrl, setUrl] = React.useState(""); // Gestion de l'url de la photo
+  const [open, setOpen] = React.useState(false); // Gestion de l'ouverture de la boîte de dialogue
+  const nameDataTotal = { name: nameData }; // Objet contenant le nom de la photo
 
-  const [localPhoto, setLocalPhoto] = useState([...photos]);
+  const [localPhoto, setLocalPhoto] = useState([...photos]); // Gestion des photos et avec createdPhoto on ajoute une photo ligne 34
 
   const handleNameChange = (event) => {
+    // Gestion du changement de nom
     setName(event.target.value);
   };
   const handleUrlChange = (event) => {
+    // Gestion du changement d'url
     setUrl(event.target.value);
   };
   const handleSubmit = async (event) => {
+    // Gestion de la soumission du formulaire
     event.preventDefault();
-    console.log(nameData, photoUrl);
     const createdPhoto = await newPhoto(photoUrl, nameDataTotal);
     setLocalPhoto((prevPhotos) => [...prevPhotos, createdPhoto]);
     handleClose();
   };
 
   const handleClickOpen = () => {
+    // Gestion de l'ouverture de la boîte de dialogue
     setOpen(true);
   };
 
   const handleClose = () => {
+    // Gestion de la fermeture de la boîte de dialogue
     setOpen(false);
     setName("");
     setUrl("");

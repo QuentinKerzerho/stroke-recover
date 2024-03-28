@@ -1,3 +1,5 @@
+// Composant pour lancer le jeu
+
 "use client";
 
 import React from "react";
@@ -6,150 +8,65 @@ import Box from "@mui/material/Box";
 import CardMedia from "@mui/material/CardMedia";
 import { ListPhoto } from "@/src/datas/ListPhoto"; // provisoir pour test
 import TextField from "@mui/material/TextField";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
+import { theme } from "@/src/theme/theme";
 
 export default function Launcher() {
-  const theme = createTheme({
-    palette: {
-      primary: {
-        light: "#FD853A",
-        main: "#FD853A",
-        dark: "#FD853A",
-        contrastText: "#fff",
-      },
-      secondary: {
-        light: "#FD853A",
-        main: "#FD853A",
-        dark: "#FD853A",
-        contrastText: "#000",
-      },
-    },
-  });
   return (
     <ThemeProvider theme={theme}>
       <Container maxWidth="lg">
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: { xs: "column", sm: "column", md: "row", lg: "row" },
-            justifyContent: "space-around",
-            marginTop: "45px",
-          }}
-        >
-          <Box
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              marginBottom: "60px",
-            }}
-          >
+        <Box className="flex flex-col sm:flex-col md:flex-row lg:flex-row justify-around mt-12">
+          <Box className="flex flex-col justify-center items-center mb-16">
             <h1
               style={{
                 fontSize: "20px",
                 backgroundColor: "#FD853A",
                 borderRadius: "20px",
-                paddingRight: "2em",
-                paddingLeft: "2em",
-                paddingTop: "1em",
-                paddingBottom: "1em",
                 fontFamily: "Holtwood One Sc",
-                color: "white",
-                marginTop: {
-                  xs: "10px",
-                  sm: "10px",
-                  md: "100px",
-                  lg: "100px",
-                },
               }}
+              className="px-8 py-4 font-serif text-white mt-15 md:mt-30 lg:mt-30"
             >
               Votre réponse
             </h1>
             <TextField
               id="outlined-basic"
               variant="standard"
-              sx={{
-                marginTop: {
-                  xs: "10px",
-                  sm: "10px",
-                  md: "100px",
-                  lg: "100px",
-                },
-              }}
+              className="mt-4 md:mt-24 lg:mt-24"
             />
           </Box>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
+          <Box className="flex justify-center items-center">
             <CardMedia
               key={ListPhoto[2].id}
-              sx={{
-                width: "400px",
-                height: "400px",
-                borderRadius: "10px",
-                border: "1px solid black",
-              }}
+              className="w-96 h-96 rounded-lg border border-black"
               component="img"
               image={ListPhoto[3].cover.src}
               alt="name"
             />
           </Box>
         </Box>
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: { xs: "column", sm: "column", md: "row", lg: "row" },
-            justifyContent: "space-around",
-            marginTop: "45px",
-          }}
-        >
-          <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Box className="flex flex-col sm:flex-col md:flex-row lg:flex-row justify-around mt-12">
+          <Box className="flex justify-center">
             <h1
               style={{
                 fontSize: "20px",
                 backgroundColor: "green",
                 borderRadius: "20px",
-                paddingRight: "2em",
-                paddingLeft: "2em",
-                paddingTop: "1em",
-                paddingBottom: "1em",
                 fontFamily: "Holtwood One Sc",
-                color: "white",
               }}
+              className="px-8 py-5 font-serif text-white items-center"
             >
               Bonne réponse
             </h1>
           </Box>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "center",
-              marginTop: {
-                xs: "10px",
-                sm: "10px",
-                md: "0px",
-                lg: "0px",
-              },
-            }}
-          >
+          <Box className="flex justify-center mt-2 sm:mt-2 md:mt-0 lg:mt-0 xl:mt-0">
             <h1
               style={{
                 fontSize: "20px",
                 backgroundColor: "red",
                 borderRadius: "20px",
-                paddingRight: "2em",
-                paddingLeft: "2em",
-                paddingTop: "1em",
-                paddingBottom: "1em",
                 fontFamily: "Holtwood One Sc",
-                color: "white",
-                alignItems: "center",
               }}
+              className="px-8 py-5 font-serif text-white items-center"
             >
               Mauvaise réponse
             </h1>

@@ -1,5 +1,6 @@
 import prisma from "@/lib/prisma";
 
+// Récupérer toutes les diapos
 export const getLatestDiapo = async () => {
   const diapos = await prisma.diapo.findMany({
     include: {
@@ -10,6 +11,7 @@ export const getLatestDiapo = async () => {
   return diapos;
 };
 
+// Créer une diapo
 export const createDiapo = async (data) => {
   const createdDiapo = await prisma.diapo.create({
     data: {
@@ -20,6 +22,7 @@ export const createDiapo = async (data) => {
   return createdDiapo;
 };
 
+// Supprimer une diapo
 export const deleteDiapo = async (id) => {
   const deletedDiapo = await prisma.diapo.delete({
     where: {

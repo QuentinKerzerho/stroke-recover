@@ -1,3 +1,5 @@
+// Composant pour afficher le texte d'introduction
+
 export default function TextIntro() {
   return (
     <div>

@@ -1,26 +1,18 @@
+// composant pour afficher les photos
+
 "use client";
 
 import Card from "@mui/material/Card";
 import Container from "@mui/material/Container";
 import Grid from "@mui/material/Grid";
-import { ListPhoto } from "@/src/datas/ListPhoto";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import CardActions from "@mui/material/CardActions";
 import Button from "@mui/material/Button";
 import React from "react";
-import { Image } from "@mui/icons-material";
-import { ImageListItem } from "@mui/material";
-import { ImageList } from "@mui/material";
-import { useState } from "react";
 
 export default function ListPhotoComponent({ photos }) {
-  const addToList = (card) => {
-    setLocalArticles((prevArticles) => [...prevArticles, card]);
-    setArticles((prevArticles) => [...prevArticles, card]);
-  };
-
   return (
     <Container sx={{ pt: 3, pb: 3 }}>
       {/* End hero unit */}
@@ -77,8 +69,6 @@ export default function ListPhotoComponent({ photos }) {
                       height: "50px",
                       fontSize: "15px",
                     }}
-
-                    // onClick={() => addToList(card.name)}
                   >
                     Ajouter
                   </Button>

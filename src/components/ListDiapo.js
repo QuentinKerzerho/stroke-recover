@@ -1,3 +1,5 @@
+// Composant pour afficher la liste des diapositives et les ajouts/suppressions de diapositives
+
 "use client";
 
 import * as React from "react";
@@ -6,13 +8,12 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Divider } from "@mui/material";
 import Box from "@mui/material/Box";
 
 const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
-  // État pour suivre l'affichage es diapositives
+  // État pour suivre l'affichage des diapositives
   const [diapos, setDiapos] = useState([...initialDiapos]);
 
   // Bouton diaporama selectionné
@@ -40,7 +41,7 @@ const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
     setSelectedButton(null);
   };
 
-  // Rendu d'un bouton
+  // Rendu d'un bouton diaporama
   const renderButton = (id, title, key) => {
     return (
       <Card
@@ -70,10 +71,10 @@ const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
     );
   };
 
-  // Rendu du bouton +
-  const renderButtonPlus = (id, title) => (
+  // Rendu du bouton - et +
+  const renderButtonExtend = (id, title, key, fonction) => (
     <Card
-      key={id}
+      key={key}
       sx={{
         width: "170px",
         margin: "10px",
@@ -81,39 +82,7 @@ const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
         color: "white",
       }}
       onClick={() => {
-        handleButtonPlusClick(id);
-      }}
-    >
-      <CardActionArea>
-        <CardContent>
-          <Typography
-            gutterBottom
-            variant="h5"
-            component="div"
-            sx={{
-              marginBottom: "0px",
-              textAlign: "center",
-            }}
-          >
-            {title}
-          </Typography>
-        </CardContent>
-      </CardActionArea>
-    </Card>
-  );
-
-  // Rendu du bouton -
-  const renderButtonMinus = (id, title) => (
-    <Card
-      key={id}
-      sx={{
-        width: "170px",
-        margin: "10px",
-        backgroundColor: "#FD853A",
-        color: "white",
-      }}
-      onClick={() => {
-        handleButtonMinusClick(id);
+        fonction(id);
       }}
     >
       <CardActionArea>
@@ -138,8 +107,8 @@ const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
       }}
     >
       <Box sx={{ display: "flex", justifyContent: "center", pb: 3 }}>
-        {renderButtonPlus(6, "Ajouter")}
-        {renderButtonMinus(7, "Supprimer")}
+        {renderButtonExtend(6, "Ajouter", 1, handleButtonPlusClick)}
+        {renderButtonExtend(7, "Supprimer", 2, handleButtonMinusClick)}
       </Box>
       <Divider />
       <Box

@@ -5,7 +5,6 @@ import Container from "@mui/material/Container";
 import ResponsiveAppBar from "@/src/components/ResponsiveAppBar";
 import FormDialog from "@/src/components/FormDialog";
 import ListPhotoComponent from "@/src/components/ListPhotoComponent";
-import prisma from "@/lib/prisma";
 import ListDiapo from "@/src/components/ListDiapo";
 import { getLatestPhoto } from "@/src/query/photo.query";
 import { getLatestDiapo } from "@/src/query/diapo.query";
@@ -15,32 +14,30 @@ import { createPhoto } from "@/src/query/photo.query";
 
 // ----------------------------------------------------------------------------------------------------------
 export default async function Gallery() {
-  const photos = await getLatestPhoto();
+  const photos = await getLatestPhoto(); // On récupère les photos
+  const diapos = await getLatestDiapo(); // On récupère les diapos
 
   const newPhoto = async (photoUrl, nameData) => {
+    // On crée une nouvelle photo
     "use server";
     return await createPhoto({ photoUrl, nameData });
   };
-
-  const diapos = await getLatestDiapo();
   const deleteDia = async (id) => {
+    // On supprime une diapo
     "use server";
     return await deleteDiapo(id);
   };
 
   const newDiapo = async () => {
+    // On crée une nouvelle diapo
     "use server";
     return await createDiapo();
-  };
-
-  const handleChildVariable = (variable) => {
-    setArticles(variable);
   };
 
   return (
     <div>
       <main>
-        <ResponsiveAppBar />
+        <ResponsiveAppBar /> {/* Barre de navigation */}
         <Typography
           component="h1"
           variant="h2"
@@ -51,7 +48,8 @@ export default async function Gallery() {
         >
           Diaporama
         </Typography>
-        <ListDiapo diapos={diapos} newDiapo={newDiapo} deleteDia={deleteDia} />
+        <ListDiapo diapos={diapos} newDiapo={newDiapo} deleteDia={deleteDia} />{" "}
+        {/* Liste des diapos */}
         <Box
           sx={{
             bgcolor: "background.paper",
@@ -84,11 +82,12 @@ export default async function Gallery() {
                 justifyContent: "center",
               }}
             >
-              <FormDialog newPhoto={newPhoto} photos={photos} />
+              <FormDialog newPhoto={newPhoto} photos={photos} />{" "}
+              {/* Formulaire d'ajout de photo */}
             </Box>
           </Container>
         </Box>
-        <ListPhotoComponent photos={photos} />
+        <ListPhotoComponent photos={photos} /> {/* Liste des photos */}
       </main>
     </div>
   );
