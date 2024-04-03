@@ -36,10 +36,10 @@ export default function Launcher() {
           </Box>
           <Box className="flex justify-center items-center">
             <CardMedia
-              key={ListPhoto[2].id}
+              key={ListPhoto[1].id}
               className="w-96 h-96 rounded-lg border border-black"
               component="img"
-              image={ListPhoto[3].cover.src}
+              image={ListPhoto[1].cover.src}
               alt="name"
             />
           </Box>
