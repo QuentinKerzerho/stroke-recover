@@ -17,7 +17,6 @@ const Contact = () => {
           component="form"
           sx={{
             marginTop: "50px",
-            "& > :not(style)": { m: 1, width: "25ch" },
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
@@ -36,12 +35,28 @@ const Contact = () => {
             Formulaire de contact
           </Typography>
           {/* <label>Prénom</label> */}
-          <TextField id="outlined-basic" label="Nom" variant="outlined" />
-          {/* <label>Nom</label> */}
-          <TextField id="outlined-basic" label="Prénom" variant="outlined" />
-          {/* <label>Mail</label> */}
-          <TextField id="outlined-basic" label="Mail" variant="outlined" />
           <TextField
+            sx={{ m: 1, width: "25ch" }}
+            id="outlined-basic"
+            label="Nom"
+            variant="outlined"
+          />
+          {/* <label>Nom</label> */}
+          <TextField
+            sx={{ m: 1, width: "25ch" }}
+            id="outlined-basic"
+            label="Prénom"
+            variant="outlined"
+          />
+          {/* <label>Mail</label> */}
+          <TextField
+            sx={{ m: 1, width: "25ch" }}
+            id="outlined-basic"
+            label="Mail"
+            variant="outlined"
+          />
+          <TextField
+            sx={{ m: 1, width: "25ch" }}
             id="outlined-multiline-static"
             label="Texte"
             multiline
@@ -51,8 +66,9 @@ const Contact = () => {
           <Button
             style={{ backgroundColor: "#FD853A" }}
             sx={{
+              m: 1,
+              width: "25ch",
               fontFamily: "Holtwood One Sc",
-              width: "10px",
               height: "3em",
             }}
             variant="contained"

@@ -82,12 +82,13 @@ export default async function Gallery() {
                 justifyContent: "center",
               }}
             >
-              <FormDialog newPhoto={newPhoto} photos={photos} />{" "}
+              <FormDialog newPhoto={newPhoto} photos={photos} />
               {/* Formulaire d'ajout de photo */}
             </Box>
           </Container>
         </Box>
-        <ListPhotoComponent photos={photos} /> {/* Liste des photos */}
+        <ListPhotoComponent photos={photos} diapos={diapos} />{" "}
+        {/* Liste des photos */}
       </main>
     </div>
   );

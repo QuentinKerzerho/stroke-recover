@@ -11,6 +11,7 @@ import Container from "@mui/material/Container";
 import { useState } from "react";
 import { Divider } from "@mui/material";
 import Box from "@mui/material/Box";
+import { createContext } from "react";
 
 const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
   // État pour suivre l'affichage des diapositives
@@ -18,6 +19,7 @@ const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
 
   // Bouton diaporama selectionné
   const [selectedButton, setSelectedButton] = useState(null);
+  const SelectedButtonContext = createContext(selectedButton);
 
   // Gestion du clic sur un bouton
   const handleButtonClick = (id) => {
