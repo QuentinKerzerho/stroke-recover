@@ -19,7 +19,7 @@ const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
 
   // Bouton diaporama selectionné
   const [selectedButton, setSelectedButton] = useState(null);
-  const SelectedButtonContext = createContext(selectedButton);
+  // const SelectedButtonContext = createContext(selectedButton);
 
   // Gestion du clic sur un bouton
   const handleButtonClick = (id) => {

@@ -12,6 +12,8 @@ import { createDiapo } from "@/src/query/diapo.query";
 import { deleteDiapo } from "@/src/query/diapo.query";
 import { createPhoto } from "@/src/query/photo.query";
 
+export const dynamic = "force-dynamic";
+
 // ----------------------------------------------------------------------------------------------------------
 export default async function Gallery() {
   const photos = await getLatestPhoto(); // On récupère les photos
