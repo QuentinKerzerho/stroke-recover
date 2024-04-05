@@ -97,12 +97,12 @@ function ResponsiveAppBar() {
               {/* {pages.map((page) => ( */}
               <Link href="/">
                 <MenuItem key={Home} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">Home</Typography>
+                  <Typography textAlign="center">Acceuil</Typography>
                 </MenuItem>
               </Link>
               <Link href="/gallery">
                 <MenuItem key={Contact} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">Gallery</Typography>
+                  <Typography textAlign="center">Galerie</Typography>
                 </MenuItem>
               </Link>
               <Link href="/contact">
@@ -135,7 +135,7 @@ function ResponsiveAppBar() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                Gallery
+                Galerie
               </Button>
             </Link>
             <Link href="/">
@@ -144,7 +144,7 @@ function ResponsiveAppBar() {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: "white", display: "block" }}
               >
-                Home
+                Acceuil
               </Button>
             </Link>
           </Box>

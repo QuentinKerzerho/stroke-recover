@@ -28,7 +28,7 @@ export default async function Home() {
           }}
         >
           <ChoiceDiapo diapos={diaposQuery} /> {/* Bouton + liste des diapos */}
-          <BasicButtons name="Gallery" to="/gallery" />{" "}
+          <BasicButtons name="Galerie" to="/gallery" />{" "}
           {/* Bouton pour accéder à la galerie */}
         </Stack>
       </Box>
