@@ -11,24 +11,32 @@ import Container from "@mui/material/Container";
 import { useState } from "react";
 import { Divider } from "@mui/material";
 import Box from "@mui/material/Box";
-import { createContext } from "react";
+import { useEffect } from "react";
 
-const ListDiapo = ({ diapos: initialDiapos, newDiapo, deleteDia }) => {
+const ListDiapo = ({
+  diapos: initialDiapos,
+  newDiapo,
+  deleteDia,
+  onSelectedButtonChange,
+}) => {
   // État pour suivre l'affichage des diapositives
   const [diapos, setDiapos] = useState([...initialDiapos]);
 
   // Bouton diaporama selectionné
   const [selectedButton, setSelectedButton] = useState(null);
-  // const SelectedButtonContext = createContext(selectedButton);
+
+  useEffect(() => {
+    onSelectedButtonChange(selectedButton);
+  }, [selectedButton, onSelectedButtonChange]);
 
   // Gestion du clic sur un bouton
-  const handleButtonClick = (id) => {
+  function handleButtonClick(id) {
     if (selectedButton === id) {
       setSelectedButton(null);
     } else {
       setSelectedButton(id);
     }
-  };
+  }
 
   // Gestion du clic sur le bouton +
   const handleButtonPlusClick = async () => {

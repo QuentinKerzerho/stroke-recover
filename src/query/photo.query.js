@@ -26,3 +26,32 @@ export const createPhoto = async (data) => {
   await prisma.$disconnect();
   return createdPhoto;
 };
+
+// Supprimer une photo
+export const deletePhoto = async (id) => {
+  const deletedPhoto = await prisma.photo.delete({
+    where: {
+      id: id,
+    },
+  });
+  await prisma.$disconnect();
+  return deletedPhoto;
+};
+
+// ajouter une photo à une diapo
+export const addPhotoToDiapo = async (photoId, diapoId) => {
+  const updatedPhoto = await prisma.photo.update({
+    where: {
+      id: photoId,
+    },
+    data: {
+      diapo: {
+        connect: {
+          id: diapoId,
+        },
+      },
+    },
+  });
+  await prisma.$disconnect();
+  return updatedPhoto;
+};

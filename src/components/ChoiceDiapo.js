@@ -13,7 +13,7 @@ import Typography from "@mui/material/Typography";
 import { useState } from "react";
 
 export default function ChoiceDiapo({ diapos }) {
-  const [open, setOpen] = React.useState(false); // Gestion de l'ouverture du tiroir
+  const [open, setOpen] = useState(false); // Gestion de l'ouverture du tiroir
 
   const toggleDrawer = (newOpen) => {
     // Fonction pour ouvrir ou fermer le tiroir
