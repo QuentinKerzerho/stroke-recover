@@ -16,14 +16,14 @@ export default async function Home() {
     <div>
       <ResponsiveAppBar /> {/* Barre de navigation */}
       <TextIntro /> {/* Texte d'introduction */}
-      <Box>
+      <Box sx={{ marginBottom: "4em" }}>
         <Stack
           direction={{ xs: "column", sm: "row" }}
           spacing={{ xs: 1, sm: 2, md: 4 }}
           sx={{
             display: "flex",
             justifyContent: "center",
-            marginTop: "5em",
+            marginTop: "3em",
             alignItems: "center",
           }}
         >
