@@ -4,7 +4,11 @@ import { getLatestDiapo } from "@/src/query/diapo.query";
 import { createDiapo } from "@/src/query/diapo.query";
 import { deleteDiapo } from "@/src/query/diapo.query";
 import { createPhoto } from "@/src/query/photo.query";
+import { deletePhoto } from "@/src/query/photo.query";
+import { addPhotoToDiapo } from "@/src/query/photo.query";
+import { removePhotoFromDiapo } from "@/src/query/photo.query";
 import GalleryForm from "@/src/app/gallery/GalleryForm";
+import { revalidatePath } from "next/cache";
 
 export const dynamic = "force-dynamic";
 
@@ -30,6 +34,27 @@ export default async function Gallery() {
     return await createDiapo();
   };
 
+  const supPhoto = async (id) => {
+    // On supprime une photo
+    "use server";
+    await deletePhoto(id);
+    revalidatePath("/gallery", "page");
+  };
+
+  const removePhotoFromDiapoFun = async (photoId) => {
+    // On enlève une photo d'une diapo
+    "use server";
+    await removePhotoFromDiapo(photoId);
+    revalidatePath("/gallery", "page");
+  };
+
+  const addPhotoToDiapoFun = async (photoId, diapoId) => {
+    // On ajoute une photo à une diapo
+    "use server";
+    await addPhotoToDiapo(photoId, diapoId);
+    revalidatePath("/gallery", "page");
+  };
+
   return (
     <div>
       <GalleryForm
@@ -38,6 +63,9 @@ export default async function Gallery() {
         deleteDia={deleteDia}
         newPhoto={newPhoto}
         photos={photos}
+        supPhoto={supPhoto}
+        addPhotoToDiapoFun={addPhotoToDiapoFun}
+        removePhotoFromDiapoFun={removePhotoFromDiapoFun}
       />
     </div>
   );

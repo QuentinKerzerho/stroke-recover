@@ -18,6 +18,9 @@ export default function GalleryForm({
   newPhoto,
   newDiapo,
   deleteDia,
+  supPhoto,
+  addPhotoToDiapoFun,
+  removePhotoFromDiapoFun,
 }) {
   const [selectedButton, setSelectedButton] = useState(null);
   const handleSelectedButton = (button) => {
@@ -82,7 +85,13 @@ export default function GalleryForm({
             </Box>
           </Container>
         </Box>
-        <ListPhotoComponent photos={photos} selectedButton={selectedButton} />{" "}
+        <ListPhotoComponent
+          photos={photos}
+          selectedButton={selectedButton}
+          supPhoto={supPhoto}
+          addPhotoToDiapoFun={addPhotoToDiapoFun}
+          removePhotoFromDiapoFun={removePhotoFromDiapoFun}
+        />{" "}
         {/* Liste des photos */}
       </main>
     </div>

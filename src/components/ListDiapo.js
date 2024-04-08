@@ -132,7 +132,7 @@ const ListDiapo = ({
         justifyContent={"start"}
       >
         {diapos.map((x, index) =>
-          renderButton(x.id, "Diaporama" + " " + (index + 1), x.index)
+          renderButton(x.id, "Diaporama" + " " + (index + 1), index)
         )}
       </Box>
     </Container>

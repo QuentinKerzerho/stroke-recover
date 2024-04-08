@@ -55,3 +55,19 @@ export const addPhotoToDiapo = async (photoId, diapoId) => {
   await prisma.$disconnect();
   return updatedPhoto;
 };
+
+// enlever une photo d'une diapo
+export const removePhotoFromDiapo = async (photoId) => {
+  const updatedPhoto = await prisma.photo.update({
+    where: {
+      id: photoId,
+    },
+    data: {
+      diapo: {
+        disconnect: true,
+      },
+    },
+  });
+  await prisma.$disconnect();
+  return updatedPhoto;
+};
