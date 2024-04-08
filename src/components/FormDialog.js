@@ -65,7 +65,7 @@ export default function FormDialog({ newPhoto, photos }) {
           variant="contained"
           onClick={handleClickOpen}
         >
-          Ajouter des photos
+          Importer des photos
         </Button>
         <Dialog
           maxWidth="sm"
@@ -73,7 +73,7 @@ export default function FormDialog({ newPhoto, photos }) {
           onClose={handleClose}
           aria-labelledby="form-dialog-title"
         >
-          <DialogTitle id="form-dialog-title">Ajouter une photo</DialogTitle>
+          <DialogTitle id="form-dialog-title">Importer des photos</DialogTitle>
           <DialogContent>
             <TextField
               autoFocus

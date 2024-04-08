@@ -37,7 +37,7 @@ export default function GalleryForm({
             component="h1"
             variant="h2"
             align="center"
-            color="text.primary"
+            color="text.secondary"
             sx={{ marginTop: "1em", marginBottom: "1em" }}
             gutterBottom
           >
@@ -74,7 +74,7 @@ export default function GalleryForm({
               component="h1"
               variant="h2"
               align="center"
-              color="text.primary"
+              color="text.secondary"
               gutterBottom
               sx={{ marginBottom: "1em" }}
             >
@@ -86,10 +86,12 @@ export default function GalleryForm({
               color="text.secondary"
               paragraph
             >
-              Cliquez sur &apos; Ajouter &apos; afin d&apos;importer une
-              nouvelle photo. Si vous souhaitez retirer une image, appuyez sur
+              Cliquez sur &apos; Ajouter &apos; afin d&apos;ajouter une photo à
+              un diaporama. Si vous souhaitez retirer une image, appuyez sur
               &apos; Enlever &apos;. Utilisez l&apos;icône de la corbeille pour
-              supprimer définitivement une photo de votre diaporama.
+              supprimer définitivement une photo. Vous pouvez également importer
+              des photos à l&apos;album avec le bouton &apos; Importer des
+              photos &apos;.
             </Typography>
             <Box
               sx={{

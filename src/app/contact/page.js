@@ -30,6 +30,17 @@ const Contact = () => {
               display: "flex",
               justifyContent: "center",
               textAlign: "center",
+              marginBottom: "20px",
+            }}
+          >
+            ! En cours de développement non fonctionnel !
+          </Typography>
+          <Typography
+            sx={{
+              fontSize: "30px",
+              display: "flex",
+              justifyContent: "center",
+              textAlign: "center",
             }}
           >
             Formulaire de contact
