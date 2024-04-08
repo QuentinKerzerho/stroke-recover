@@ -39,8 +39,8 @@ export default function ListPhotoComponent({
   };
 
   return (
-    <Container sx={{ pt: 3, pb: 3 }}>
-      <Grid container spacing={6}>
+    <Container sx={{ pt: 3, pb: 3 }} maxWidth="xl">
+      <Grid container spacing={4}>
         {photos
           .sort((a, b) => a.name.name.localeCompare(b.name.name))
           .map((photo) =>

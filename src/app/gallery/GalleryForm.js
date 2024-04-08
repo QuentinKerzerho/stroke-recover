@@ -9,6 +9,7 @@ import FormDialog from "@/src/components/FormDialog";
 import ListPhotoComponent from "@/src/components/ListPhotoComponent";
 import ListDiapo from "@/src/components/ListDiapo";
 import { ThemeContext } from "@emotion/react";
+import Divider from "@mui/material/Divider";
 
 export const dynamic = "force-dynamic";
 
@@ -31,37 +32,51 @@ export default function GalleryForm({
     <div>
       <main>
         <ResponsiveAppBar /> {/* Barre de navigation */}
-        <Typography
-          component="h1"
-          variant="h2"
-          align="center"
-          color="text.primary"
-          sx={{ marginTop: "1em" }}
-          gutterBottom
-        >
-          Diaporama
-        </Typography>
-        <ListDiapo
-          diapos={diapos}
-          newDiapo={newDiapo}
-          deleteDia={deleteDia}
-          onSelectedButtonChange={handleSelectedButton}
-        />{" "}
-        {/* Liste des diapos */}
+        <Container>
+          <Typography
+            component="h1"
+            variant="h2"
+            align="center"
+            color="text.primary"
+            sx={{ marginTop: "1em", marginBottom: "1em" }}
+            gutterBottom
+          >
+            Diaporama
+          </Typography>
+          <Typography
+            variant="h5"
+            align="center"
+            color="text.secondary"
+            paragraph
+            sx={{ marginBottom: "1.2em" }}
+          >
+            Créez votre diaporama et ajouté les photos que vous souhaitez en
+            sélectionnant votre diaporama.
+          </Typography>
+          <ListDiapo
+            diapos={diapos}
+            newDiapo={newDiapo}
+            deleteDia={deleteDia}
+            onSelectedButtonChange={handleSelectedButton}
+          />
+          {""}
+        </Container>
+        <Divider sx={{ marginTop: "50px" }} />
         <Box
           sx={{
             bgcolor: "background.paper",
-            pt: 8,
+            pt: 6,
             pb: 6,
           }}
         >
-          <Container maxWidth="sm">
+          <Container>
             <Typography
               component="h1"
               variant="h2"
               align="center"
               color="text.primary"
               gutterBottom
+              sx={{ marginBottom: "1em" }}
             >
               Album
             </Typography>
@@ -71,13 +86,16 @@ export default function GalleryForm({
               color="text.secondary"
               paragraph
             >
-              Vous avez la possibilité d&apos;ajouter les photos qui vous
-              conviennent ici.
+              Cliquez sur &apos; Ajouter &apos; afin d&apos;importer une
+              nouvelle photo. Si vous souhaitez retirer une image, appuyez sur
+              &apos; Enlever &apos;. Utilisez l&apos;icône de la corbeille pour
+              supprimer définitivement une photo de votre diaporama.
             </Typography>
             <Box
               sx={{
                 display: "flex",
                 justifyContent: "center",
+                marginTop: "4em",
               }}
             >
               <FormDialog newPhoto={newPhoto} photos={photos} />

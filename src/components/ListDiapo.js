@@ -46,6 +46,9 @@ const ListDiapo = ({
 
   // Gestion du clic sur le bouton -
   const handleButtonMinusClick = () => {
+    if (!selectedButton) {
+      return;
+    }
     deleteDia(selectedButton);
     setDiapos(diapos.filter((diapo) => diapo.id !== selectedButton));
     setSelectedButton(null);
@@ -117,10 +120,14 @@ const ListDiapo = ({
       }}
     >
       <Box sx={{ display: "flex", justifyContent: "center", pb: 3 }}>
-        {renderButtonExtend(6, "Ajouter", 1, handleButtonPlusClick)}
-        {renderButtonExtend(7, "Supprimer", 2, handleButtonMinusClick)}
+        {renderButtonExtend(6, "Ajouter  Diaporama", 1, handleButtonPlusClick)}
+        {renderButtonExtend(
+          7,
+          "Supprimer Diaporama",
+          2,
+          handleButtonMinusClick
+        )}
       </Box>
-      <Divider />
       <Box
         sx={{
           overflow: "auto",
