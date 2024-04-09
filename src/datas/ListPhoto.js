@@ -1,6 +1,6 @@
 import july from "../assets/july.jpg";
 
-import quentin from "../assets/quentin.jpg";
+import quentin from "../assets/quentin1.jpg";
 
 export const ListPhoto = [
   {
