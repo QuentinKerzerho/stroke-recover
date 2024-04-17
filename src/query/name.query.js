@@ -1,6 +1,6 @@
 import prisma from "@/lib/prisma";
 
-// Récupérer tous les noms
+// Création d'un nom
 export const createName = async (data) => {
   const { name } = data;
   const createdName = prisma.photo.create({
@@ -10,4 +10,15 @@ export const createName = async (data) => {
   });
   await prisma.$disconnect();
   return createdName;
+};
+
+// Récupérer tous les noms
+export const getAllNames = async () => {
+  const names = await prisma.name.findMany({
+    include: {
+      photos: true, // Inclure les données liées à 'photos'
+    },
+  });
+  await prisma.$disconnect();
+  return names;
 };

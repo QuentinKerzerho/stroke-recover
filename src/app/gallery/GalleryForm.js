@@ -8,7 +8,6 @@ import ResponsiveAppBar from "@/src/components/ResponsiveAppBar";
 import FormDialog from "@/src/components/FormDialog";
 import ListPhotoComponent from "@/src/components/ListPhotoComponent";
 import ListDiapo from "@/src/components/ListDiapo";
-import { ThemeContext } from "@emotion/react";
 import Divider from "@mui/material/Divider";
 
 export const dynamic = "force-dynamic";

@@ -5,13 +5,53 @@
 import React from "react";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
 import CardMedia from "@mui/material/CardMedia";
-import { ListPhoto } from "@/src/datas/ListPhoto"; // provisoir pour test
 import TextField from "@mui/material/TextField";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "@/src/theme/theme";
+import { useState } from "react";
 
-export default function Launcher() {
+let count = 0;
+
+export default function Launcher({ id, photos, diapos, names }) {
+  const [nameField, setNameField] = React.useState("");
+  const [count, setCount] = useState(0);
+  const [gameOver, setGameOver] = useState(false);
+
+  const diapo = diapos.find((diapo) => diapo.id === id);
+  const photo = diapo.photos[count];
+  const currentName = names.find((name) => name.id === photo.name_id);
+
+  const handleSubmit = () => {
+    setNameField("");
+  };
+
+  const handleClick = () => {
+    if (nameField === currentName.name) {
+      console.log("Bonne réponse");
+    } else {
+      console.log("Mauvaise réponse");
+    }
+    setCount(count + 1);
+    if (count >= diapo.photos.length) {
+      setGameOver(true);
+    }
+  };
+
+  if (gameOver) {
+    return <h1>Fin du jeu</h1>;
+  }
+
+  //handleClick = (currentName) => {
+  //console.log("click");
+  //console.log(nameField);
+
+  //nameField === currentName.name
+  //? console.log("Bonne réponse")
+  //: console.log("Mauvaise réponse");
+  //};
+
   return (
     <ThemeProvider theme={theme}>
       <Container maxWidth="lg">
@@ -28,18 +68,32 @@ export default function Launcher() {
             >
               Votre réponse
             </h1>
-            <TextField
-              id="outlined-basic"
-              variant="standard"
-              className="mt-4 md:mt-24 lg:mt-24"
-            />
+            <form
+              onSubmit={(event) => {
+                event.preventDefault();
+                handleSubmit();
+                handleClick(currentName);
+              }}
+            >
+              <TextField
+                id="outlined-basic"
+                variant="standard"
+                className="mt-4 md:mt-24 lg:mt-24"
+                onChange={(event) => {
+                  setNameField(event.target.value);
+                }}
+              />
+              <Button variant="text" name="Valider" to="" type="submit">
+                Valider
+              </Button>
+            </form>
           </Box>
           <Box className="flex justify-center items-center">
             <CardMedia
-              key={ListPhoto[0].id}
+              key={diapo.photos[count].id}
               className="w-96 h-96 rounded-lg border border-black"
               component="img"
-              image={ListPhoto[0].cover.src}
+              image={diapo.photos[count].url}
               alt="name"
             />
           </Box>

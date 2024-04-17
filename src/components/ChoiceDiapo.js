@@ -1,5 +1,3 @@
-// Composant pour afficher les boutons de choix de diaporama dans Home avec le bouton Lancer
-
 "use client";
 
 import * as React from "react";
@@ -11,9 +9,11 @@ import CardActionArea from "@mui/material/CardActionArea";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
+import Link from "next/link";
 
 export default function ChoiceDiapo({ diapos }) {
   const [open, setOpen] = useState(false); // Gestion de l'ouverture du tiroir
+  const [selectedButton, setSelectedButton] = useState(""); // Gestion du bouton sélectionné
 
   const toggleDrawer = (newOpen) => {
     // Fonction pour ouvrir ou fermer le tiroir
@@ -22,16 +22,10 @@ export default function ChoiceDiapo({ diapos }) {
     };
   };
 
-  const [selectedButton, setSelectedButton] = useState(null); // Gestion du bouton sélectionné
-
   // Gestion du clic sur un bouton diaporama
-  const handleButtonClick = (id) => {
-    if (selectedButton === id) {
-      setSelectedButton(null);
-    } else {
-      setSelectedButton(id);
-    }
-  };
+  function handleButtonClick(id) {
+    setSelectedButton(id);
+  }
 
   // Rendu d'un bouton diaporama
   const renderButton = (id, title, key) => {
@@ -47,17 +41,24 @@ export default function ChoiceDiapo({ diapos }) {
         onClick={() => handleButtonClick(id)}
       >
         <CardActionArea>
-          <CardContent>
-            <Typography
-              gutterBottom
-              variant="h5"
-              component="div"
-              sx={{ marginBottom: "0px" }}
-            >
-              {" "}
-              {title}
-            </Typography>
-          </CardContent>
+          <Link
+            href={{
+              pathname: "/launch",
+              query: { id: `${id}` },
+            }}
+          >
+            <CardContent>
+              <Typography
+                gutterBottom
+                variant="h5"
+                component="div"
+                sx={{ marginBottom: "0px" }}
+              >
+                {" "}
+                {title}
+              </Typography>
+            </CardContent>
+          </Link>
         </CardActionArea>
       </Card>
     );
@@ -85,7 +86,6 @@ export default function ChoiceDiapo({ diapos }) {
     <div>
       <Button
         name="Name"
-        to=""
         onClick={toggleDrawer(true)}
         style={{ backgroundColor: "#FD853A" }}
         sx={{
