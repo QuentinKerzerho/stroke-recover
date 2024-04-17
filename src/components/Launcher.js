@@ -12,16 +12,20 @@ import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "@/src/theme/theme";
 import { useState } from "react";
 
-let count = 0;
-
 export default function Launcher({ id, photos, diapos, names }) {
   const [nameField, setNameField] = React.useState("");
   const [count, setCount] = useState(0);
   const [gameOver, setGameOver] = useState(false);
 
   const diapo = diapos.find((diapo) => diapo.id === id);
-  const photo = diapo.photos[count];
-  const currentName = names.find((name) => name.id === photo.name_id);
+  let photo;
+  let currentName = "Default Value";
+
+  if (count < diapo.photos.length) {
+    photo = diapo.photos[count];
+    currentName =
+      names.find((name) => name.id === photo.name_id) || "Default Value";
+  }
 
   const handleSubmit = () => {
     setNameField("");
@@ -34,7 +38,7 @@ export default function Launcher({ id, photos, diapos, names }) {
       console.log("Mauvaise réponse");
     }
     setCount(count + 1);
-    if (count >= diapo.photos.length) {
+    if (count >= diapo.photos.length - 1) {
       setGameOver(true);
     }
   };
@@ -42,15 +46,6 @@ export default function Launcher({ id, photos, diapos, names }) {
   if (gameOver) {
     return <h1>Fin du jeu</h1>;
   }
-
-  //handleClick = (currentName) => {
-  //console.log("click");
-  //console.log(nameField);
-
-  //nameField === currentName.name
-  //? console.log("Bonne réponse")
-  //: console.log("Mauvaise réponse");
-  //};
 
   return (
     <ThemeProvider theme={theme}>
