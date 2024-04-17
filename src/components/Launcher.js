@@ -16,6 +16,8 @@ export default function Launcher({ id, photos, diapos, names }) {
   const [nameField, setNameField] = React.useState("");
   const [count, setCount] = useState(0);
   const [gameOver, setGameOver] = useState(false);
+  const [goodRes, setGoodRes] = useState(false);
+  const [badRes, setBadRes] = useState(false);
 
   const diapo = diapos.find((diapo) => diapo.id === id);
   let photo;
@@ -28,14 +30,17 @@ export default function Launcher({ id, photos, diapos, names }) {
   }
 
   const handleSubmit = () => {
+    setGoodRes(false);
+    setBadRes(false);
     setNameField("");
   };
 
   const handleClick = () => {
     if (nameField === currentName.name) {
       console.log("Bonne réponse");
+      setGoodRes(true);
     } else {
-      console.log("Mauvaise réponse");
+      setBadRes(true);
     }
     setCount(count + 1);
     if (count >= diapo.photos.length - 1) {
@@ -64,6 +69,7 @@ export default function Launcher({ id, photos, diapos, names }) {
               Votre réponse
             </h1>
             <form
+              className="flex flex-col"
               onSubmit={(event) => {
                 event.preventDefault();
                 handleSubmit();
@@ -71,6 +77,7 @@ export default function Launcher({ id, photos, diapos, names }) {
               }}
             >
               <TextField
+                sx={{ paddingBottom: "50px" }}
                 id="outlined-basic"
                 variant="standard"
                 className="mt-4 md:mt-24 lg:mt-24"
@@ -78,7 +85,13 @@ export default function Launcher({ id, photos, diapos, names }) {
                   setNameField(event.target.value);
                 }}
               />
-              <Button variant="text" name="Valider" to="" type="submit">
+              <Button
+                style={{ backgroundColor: "#FD853A" }}
+                variant="contained"
+                name="Valider"
+                to=""
+                type="submit"
+              >
                 Valider
               </Button>
             </form>
@@ -93,33 +106,39 @@ export default function Launcher({ id, photos, diapos, names }) {
             />
           </Box>
         </Box>
+        {}
         <Box className="flex flex-col sm:flex-col md:flex-row lg:flex-row justify-around mt-12">
-          <Box className="flex justify-center">
-            <h1
-              style={{
-                fontSize: "20px",
-                backgroundColor: "green",
-                borderRadius: "20px",
-                fontFamily: "Holtwood One Sc",
-              }}
-              className="px-8 py-5 font-serif text-white items-center"
-            >
-              Bonne réponse
-            </h1>
-          </Box>
-          <Box className="flex justify-center mt-2 sm:mt-2 md:mt-0 lg:mt-0 xl:mt-0">
-            <h1
-              style={{
-                fontSize: "20px",
-                backgroundColor: "red",
-                borderRadius: "20px",
-                fontFamily: "Holtwood One Sc",
-              }}
-              className="px-8 py-5 font-serif text-white items-center"
-            >
-              Mauvaise réponse
-            </h1>
-          </Box>
+          {goodRes && (
+            <Box className="flex justify-center">
+              <h1
+                style={{
+                  fontSize: "20px",
+                  backgroundColor: "green",
+                  borderRadius: "20px",
+                  fontFamily: "Holtwood One Sc",
+                }}
+                className="px-8 py-5 font-serif text-white items-center"
+              >
+                Bonne réponse
+              </h1>
+            </Box>
+          )}
+          {/* ... */}
+          {badRes && (
+            <Box className="flex justify-center mt-2 sm:mt-2 md:mt-0 lg:mt-0 xl:mt-0">
+              <h1
+                style={{
+                  fontSize: "20px",
+                  backgroundColor: "red",
+                  borderRadius: "20px",
+                  fontFamily: "Holtwood One Sc",
+                }}
+                className="px-8 py-5 font-serif text-white items-center"
+              >
+                Mauvaise réponse
+              </h1>
+            </Box>
+          )}
         </Box>
       </Container>
     </ThemeProvider>
