@@ -129,8 +129,7 @@ export default function Launcher({ id, photos, diapos, names }) {
                 }}
               >
                 <TextField
-                  sx={{ paddingBottom: "50px" }}
-                  className="mt-12"
+                  sx={{ paddingBottom: "50px", marginTop: "3rem" }}
                   id="outlined-basic"
                   variant="standard"
                   value={nameField ? nameField : ""}
