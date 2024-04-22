@@ -96,7 +96,7 @@ export default function FormDialog({ newPhoto, photos }) {
               onChange={handleUrlChange}
             />
           </DialogContent>
-          <DialogActions className="flex flex-row justify-center mb-3">
+          <DialogActions className="flex flex-row self-center mb-3">
             <Button
               onClick={handleClose}
               style={{ backgroundColor: "#FD853A" }}
