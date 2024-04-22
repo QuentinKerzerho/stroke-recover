@@ -10,6 +10,7 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import Link from "next/link";
+export const dynamic = "force-dynamic";
 
 export default function ChoiceDiapo({ diapos }) {
   const [open, setOpen] = useState(false); // Gestion de l'ouverture du tiroir
