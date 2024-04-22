@@ -12,7 +12,6 @@ import DialogTitle from "@mui/material//DialogTitle";
 import { useState } from "react";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "@/src/theme/theme";
-export const dynamic = "force-dynamic";
 
 export default function FormDialog({ newPhoto, photos }) {
   const [nameData, setName] = React.useState(""); // Gestion du nom de la photo

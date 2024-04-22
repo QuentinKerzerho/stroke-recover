@@ -12,14 +12,13 @@ import { useState } from "react";
 import { Divider } from "@mui/material";
 import Box from "@mui/material/Box";
 import { useEffect } from "react";
-export const dynamic = "force-dynamic";
 
-export default function ListDiapo({
+const ListDiapo = ({
   diapos: initialDiapos,
   newDiapo,
   deleteDia,
   onSelectedButtonChange,
-}) {
+}) => {
   // État pour suivre l'affichage des diapositives
   const [diapos, setDiapos] = useState([...initialDiapos]);
 
@@ -149,4 +148,5 @@ export default function ListDiapo({
       </Box>
     </Container>
   );
-}
+};
+export default ListDiapo;
