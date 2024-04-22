@@ -12,13 +12,14 @@ import { useState } from "react";
 import { Divider } from "@mui/material";
 import Box from "@mui/material/Box";
 import { useEffect } from "react";
+export const dynamic = "force-dynamic";
 
-const ListDiapo = ({
+export default function ListDiapo({
   diapos: initialDiapos,
   newDiapo,
   deleteDia,
   onSelectedButtonChange,
-}) => {
+}) {
   // État pour suivre l'affichage des diapositives
   const [diapos, setDiapos] = useState([...initialDiapos]);
 
@@ -40,6 +41,10 @@ const ListDiapo = ({
 
   // Gestion du clic sur le bouton +
   const handleButtonPlusClick = async () => {
+    if (diapos.length >= 10) {
+      alert("Vous ne pouvez pas créer plus de 10 diapos");
+      return;
+    }
     const diapo = await newDiapo();
     setDiapos((prevDiapos) => [...prevDiapos, diapo]);
   };
@@ -144,6 +149,4 @@ const ListDiapo = ({
       </Box>
     </Container>
   );
-};
-
-export default ListDiapo;
+}
