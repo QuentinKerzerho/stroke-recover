@@ -11,13 +11,18 @@ import TextField from "@mui/material/TextField";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "@/src/theme/theme";
 import { useState } from "react";
+import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Link from "next/link";
 
 export default function Launcher({ id, photos, diapos, names }) {
-  const [nameField, setNameField] = React.useState("");
+  const [nameField, setNameField] = useState("");
   const [count, setCount] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   const [goodRes, setGoodRes] = useState(false);
   const [badRes, setBadRes] = useState(false);
+  const [hint, setHint] = useState(false);
 
   const diapo = diapos.find((diapo) => diapo.id === id);
   let photo;
@@ -29,34 +34,81 @@ export default function Launcher({ id, photos, diapos, names }) {
       names.find((name) => name.id === photo.name_id) || "Default Value";
   }
 
-  const handleSubmit = () => {
+  const handleHint = () => {
+    console.log("Indice");
+    setHint(true);
+  };
+
+  const clearTextField = () => setNameField("");
+
+  const handleNext = () => {
+    setCount(count + 1);
+    clearTextField();
     setGoodRes(false);
     setBadRes(false);
-    setNameField("");
+    setHint(false);
+    setGameOver;
+    if (count >= diapo.photos.length - 1) {
+      setGameOver(true);
+    }
   };
 
   const handleClick = () => {
     if (nameField === currentName.name) {
       console.log("Bonne réponse");
       setGoodRes(true);
+      setBadRes(false);
     } else {
       setBadRes(true);
-    }
-    setCount(count + 1);
-    if (count >= diapo.photos.length - 1) {
-      setGameOver(true);
+      setGoodRes(false);
     }
   };
 
   if (gameOver) {
-    return <h1>Fin du jeu</h1>;
+    return (
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <Typography
+          component="h1"
+          variant="h2"
+          align="center"
+          color="text.secondary"
+          sx={{ marginTop: "1em", marginBottom: "1em" }}
+          gutterBottom
+        >
+          Fin de la séance
+        </Typography>
+        <Link
+          href="/"
+          style={{
+            alignSelf: "center",
+          }}
+        >
+          <Button
+            style={{
+              backgroundColor: "#FD853A",
+            }}
+            sx={{
+              fontFamily: "Holtwood One Sc",
+              paddingRight: "2em",
+              paddingLeft: "2em",
+              paddingTop: "1em",
+              paddingBottom: "1em",
+              fontSize: "1.5em",
+            }}
+            variant="contained"
+          >
+            Accueil
+          </Button>
+        </Link>
+      </div>
+    );
   }
 
   return (
     <ThemeProvider theme={theme}>
       <Container maxWidth="lg">
         <Box className="flex flex-col sm:flex-col md:flex-row lg:flex-row justify-around mt-12">
-          <Box className="flex flex-col justify-center items-center mb-16">
+          <Box className="flex flex-col justify-center items-center mb-10">
             <h1
               style={{
                 fontSize: "20px",
@@ -72,7 +124,6 @@ export default function Launcher({ id, photos, diapos, names }) {
               className="flex flex-col"
               onSubmit={(event) => {
                 event.preventDefault();
-                handleSubmit();
                 handleClick(currentName);
               }}
             >
@@ -80,13 +131,14 @@ export default function Launcher({ id, photos, diapos, names }) {
                 sx={{ paddingBottom: "50px" }}
                 id="outlined-basic"
                 variant="standard"
+                value={nameField ? nameField : ""}
                 className="mt-4 md:mt-24 lg:mt-24"
                 onChange={(event) => {
                   setNameField(event.target.value);
                 }}
               />
               <Button
-                style={{ backgroundColor: "#FD853A" }}
+                style={{ backgroundColor: "#FD853A", marginBottom: "50px" }}
                 variant="contained"
                 name="Valider"
                 to=""
@@ -94,6 +146,20 @@ export default function Launcher({ id, photos, diapos, names }) {
               >
                 Valider
               </Button>
+              {hint && <h1>Indice : {currentName.name}</h1>}
+              {!hint && (
+                <IconButton
+                  style={{
+                    alignSelf: "center",
+                    width: "50px",
+                    height: "50px",
+                  }}
+                  onClick={handleHint}
+                >
+                  {" "}
+                  <TipsAndUpdatesIcon />
+                </IconButton>
+              )}
             </form>
           </Box>
           <Box className="flex justify-center items-center">
@@ -108,7 +174,7 @@ export default function Launcher({ id, photos, diapos, names }) {
         </Box>
         {}
         <Box className="flex flex-col sm:flex-col md:flex-row lg:flex-row justify-around mt-12">
-          {goodRes && (
+          {goodRes && !badRes && (
             <Box className="flex justify-center">
               <h1
                 style={{
@@ -116,6 +182,7 @@ export default function Launcher({ id, photos, diapos, names }) {
                   backgroundColor: "green",
                   borderRadius: "20px",
                   fontFamily: "Holtwood One Sc",
+                  marginBottom: "50px",
                 }}
                 className="px-8 py-5 font-serif text-white items-center"
               >
@@ -124,7 +191,7 @@ export default function Launcher({ id, photos, diapos, names }) {
             </Box>
           )}
           {/* ... */}
-          {badRes && (
+          {badRes && !goodRes && (
             <Box className="flex justify-center mt-2 sm:mt-2 md:mt-0 lg:mt-0 xl:mt-0">
               <h1
                 style={{
@@ -132,12 +199,32 @@ export default function Launcher({ id, photos, diapos, names }) {
                   backgroundColor: "red",
                   borderRadius: "20px",
                   fontFamily: "Holtwood One Sc",
+                  marginBottom: "50px",
                 }}
                 className="px-8 py-5 font-serif text-white items-center"
               >
                 Mauvaise réponse
               </h1>
             </Box>
+          )}
+          {(badRes || goodRes) && (
+            <Button
+              style={{
+                backgroundColor: "#FD853A",
+                width: "200px",
+                height: "50px",
+
+                alignSelf: "center",
+                marginBottom: "50px",
+              }}
+              variant="contained"
+              name="Valider"
+              to=""
+              type="submit"
+              onClick={handleNext}
+            >
+              Suivant
+            </Button>
           )}
         </Box>
       </Container>
