@@ -55,7 +55,7 @@ export default function Launcher({ id, photos, diapos, names }) {
   };
 
   const handleClick = () => {
-    if (nameField === currentName.name) {
+    if (nameField.toLowerCase() === currentName.name.toLowerCase()) {
       console.log("Bonne réponse");
       setGoodRes(true);
       setBadRes(false);
