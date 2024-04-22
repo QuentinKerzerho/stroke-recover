@@ -107,8 +107,8 @@ export default function Launcher({ id, photos, diapos, names }) {
   return (
     <ThemeProvider theme={theme}>
       <Container maxWidth="lg">
-        <Box className="flex flex-col sm:flex-col md:flex-row lg:flex-row justify-around mt-12">
-          <Box className="flex flex-col justify-center items-center mb-10">
+        <Box className="flex flex-col sm:flex-col md:flex-row lg:flex-row justify-around mt-8 ">
+          <Box className="flex flex-col justify-center items-center">
             <h1
               style={{
                 fontSize: "20px",
@@ -116,53 +116,55 @@ export default function Launcher({ id, photos, diapos, names }) {
                 borderRadius: "20px",
                 fontFamily: "Holtwood One Sc",
               }}
-              className="px-8 py-4 font-serif text-white mt-15 md:mt-30 lg:mt-30"
+              className="px-8 py-4 font-serif text-white"
             >
               Votre réponse
             </h1>
-            <form
-              className="flex flex-col"
-              onSubmit={(event) => {
-                event.preventDefault();
-                handleClick(currentName);
-              }}
-            >
-              <TextField
-                sx={{ paddingBottom: "50px" }}
-                id="outlined-basic"
-                variant="standard"
-                value={nameField ? nameField : ""}
-                className="mt-4 md:mt-24 lg:mt-24"
-                onChange={(event) => {
-                  setNameField(event.target.value);
+            <div>
+              <form
+                className="flex flex-col"
+                onSubmit={(event) => {
+                  event.preventDefault();
+                  handleClick(currentName);
                 }}
-              />
-              <Button
-                style={{ backgroundColor: "#FD853A", marginBottom: "50px" }}
-                variant="contained"
-                name="Valider"
-                to=""
-                type="submit"
               >
-                Valider
-              </Button>
-              {hint && <h1>Indice : {currentName.name}</h1>}
-              {!hint && (
-                <IconButton
-                  style={{
-                    alignSelf: "center",
-                    width: "50px",
-                    height: "50px",
+                <TextField
+                  sx={{ paddingBottom: "50px" }}
+                  className="mt-12"
+                  id="outlined-basic"
+                  variant="standard"
+                  value={nameField ? nameField : ""}
+                  onChange={(event) => {
+                    setNameField(event.target.value);
                   }}
-                  onClick={handleHint}
+                />
+                <Button
+                  style={{ backgroundColor: "#FD853A", marginBottom: "50px" }}
+                  variant="contained"
+                  name="Valider"
+                  to=""
+                  type="submit"
                 >
-                  {" "}
-                  <TipsAndUpdatesIcon />
-                </IconButton>
-              )}
-            </form>
+                  Valider
+                </Button>
+                {hint && <h1>Indice : {currentName.name}</h1>}
+                {!hint && (
+                  <IconButton
+                    style={{
+                      alignSelf: "center",
+                      width: "50px",
+                      height: "50px",
+                    }}
+                    onClick={handleHint}
+                  >
+                    {" "}
+                    <TipsAndUpdatesIcon />
+                  </IconButton>
+                )}
+              </form>
+            </div>
           </Box>
-          <Box className="flex justify-center items-center">
+          <Box className="flex justify-center items-center mt-12">
             <CardMedia
               key={diapo.photos[count].id}
               className="w-96 h-96 rounded-lg border border-black"
