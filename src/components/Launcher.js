@@ -15,6 +15,7 @@ import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
+export const dynamic = "force-dynamic";
 
 export default function Launcher({ id, photos, diapos, names }) {
   const [nameField, setNameField] = useState("");
@@ -25,10 +26,15 @@ export default function Launcher({ id, photos, diapos, names }) {
   const [hint, setHint] = useState(false);
 
   const diapo = diapos.find((diapo) => diapo.id === id);
-  const photo = diapo.photos[count];
-  const currentName = names.find((name) => name.id === photo.name_id) || {
-    name: "Default Value",
-  };
+
+  let photo;
+  let currentName = "Default Value";
+
+  if (count < diapo.photos.length) {
+    photo = diapo.photos[count];
+    currentName =
+      names.find((name) => name.id === photo.name_id) || "Default Value";
+  }
 
   const handleHint = () => {
     console.log("Indice");

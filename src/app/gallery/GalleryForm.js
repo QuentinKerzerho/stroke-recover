@@ -26,6 +26,9 @@ export default function GalleryForm({
   const handleSelectedButton = (button) => {
     setSelectedButton(button);
   };
+  console.log(photos);
+
+  const [localPhoto, setLocalPhoto] = useState([...photos]);
 
   return (
     <div>
@@ -99,13 +102,17 @@ export default function GalleryForm({
                 marginTop: "4em",
               }}
             >
-              <FormDialog newPhoto={newPhoto} photos={photos} />
+              <FormDialog
+                newPhoto={newPhoto}
+                localPhoto={localPhoto}
+                setLocalPhoto={setLocalPhoto}
+              />
               {/* Formulaire d'ajout de photo */}
             </Box>
           </Container>
         </Box>
         <ListPhotoComponent
-          photos={photos}
+          localPhoto={localPhoto}
           selectedButton={selectedButton}
           supPhoto={supPhoto}
           addPhotoToDiapoFun={addPhotoToDiapoFun}

@@ -9,7 +9,6 @@ import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
 import Container from "@mui/material/Container";
 import { useState } from "react";
-import { Divider } from "@mui/material";
 import Box from "@mui/material/Box";
 import { useEffect } from "react";
 

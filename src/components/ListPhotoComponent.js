@@ -16,7 +16,7 @@ import IconButton from "@mui/material/IconButton";
 export const dynamic = "force-dynamic";
 
 export default function ListPhotoComponent({
-  photos,
+  localPhoto,
   selectedButton,
   supPhoto,
   removePhotoFromDiapoFun,
@@ -30,6 +30,7 @@ export default function ListPhotoComponent({
     supPhoto(id);
   };
 
+  console.log(localPhoto);
   const handleAddPhoto = (id) => {
     console.log(photos);
     addPhotoToDiapoFun(id, selectedButton);
@@ -41,7 +42,7 @@ export default function ListPhotoComponent({
   return (
     <Container sx={{ pt: 3, pb: 3 }} maxWidth="xl">
       <Grid container spacing={4}>
-        {photos
+        {localPhoto
           .sort((a, b) => a.name.name.localeCompare(b.name.name))
           .map((photo) =>
             photo.diapo_id === selectedButton ? (
