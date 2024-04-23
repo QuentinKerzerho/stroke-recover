@@ -37,7 +37,6 @@ export default function Launcher({ id, photos, diapos, names }) {
   }
 
   const handleHint = () => {
-    console.log("Indice");
     setHint(true);
   };
 
@@ -57,7 +56,6 @@ export default function Launcher({ id, photos, diapos, names }) {
 
   const handleClick = () => {
     if (nameField.toLowerCase() === currentName.name.toLowerCase()) {
-      console.log("Bonne réponse");
       setGoodRes(true);
       setBadRes(false);
     } else {

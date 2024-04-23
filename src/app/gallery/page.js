@@ -20,7 +20,8 @@ export default async function Gallery() {
   const newPhoto = async (photoUrl, nameData) => {
     // On crée une nouvelle photo
     "use server";
-    return await createPhoto({ photoUrl, nameData });
+    await createPhoto({ photoUrl, nameData });
+    revalidatePath("/gallery", "page");
   };
   const deleteDia = async (id) => {
     // On supprime une diapo
@@ -34,7 +35,7 @@ export default async function Gallery() {
     return await createDiapo();
   };
 
-  const supPhoto = async (id) => {
+  const deletePicture = async (id) => {
     // On supprime une photo
     "use server";
     await deletePhoto(id);
@@ -63,7 +64,7 @@ export default async function Gallery() {
         deleteDia={deleteDia}
         newPhoto={newPhoto}
         photos={photos}
-        supPhoto={supPhoto}
+        deletePicture={deletePicture}
         addPhotoToDiapoFun={addPhotoToDiapoFun}
         removePhotoFromDiapoFun={removePhotoFromDiapoFun}
       />

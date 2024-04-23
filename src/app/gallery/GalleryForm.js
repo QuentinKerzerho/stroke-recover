@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
@@ -18,7 +18,7 @@ export default function GalleryForm({
   newPhoto,
   newDiapo,
   deleteDia,
-  supPhoto,
+  deletePicture,
   addPhotoToDiapoFun,
   removePhotoFromDiapoFun,
 }) {
@@ -26,9 +26,6 @@ export default function GalleryForm({
   const handleSelectedButton = (button) => {
     setSelectedButton(button);
   };
-  console.log(photos);
-
-  const [localPhoto, setLocalPhoto] = useState([...photos]);
 
   return (
     <div>
@@ -102,19 +99,15 @@ export default function GalleryForm({
                 marginTop: "4em",
               }}
             >
-              <FormDialog
-                newPhoto={newPhoto}
-                localPhoto={localPhoto}
-                setLocalPhoto={setLocalPhoto}
-              />
+              <FormDialog newPhoto={newPhoto} photos={photos} />
               {/* Formulaire d'ajout de photo */}
             </Box>
           </Container>
         </Box>
         <ListPhotoComponent
-          localPhoto={localPhoto}
+          photos={photos}
           selectedButton={selectedButton}
-          supPhoto={supPhoto}
+          deletePicture={deletePicture}
           addPhotoToDiapoFun={addPhotoToDiapoFun}
           removePhotoFromDiapoFun={removePhotoFromDiapoFun}
         />{" "}

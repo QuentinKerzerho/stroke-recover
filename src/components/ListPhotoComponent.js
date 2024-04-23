@@ -16,9 +16,9 @@ import IconButton from "@mui/material/IconButton";
 export const dynamic = "force-dynamic";
 
 export default function ListPhotoComponent({
-  localPhoto,
+  photos,
   selectedButton,
-  supPhoto,
+  deletePicture,
   removePhotoFromDiapoFun,
   addPhotoToDiapoFun,
 }) {
@@ -26,13 +26,11 @@ export default function ListPhotoComponent({
     return null;
   }
 
-  const handleNewPhoto = (id) => {
-    supPhoto(id);
+  const handleDeletePhoto = (id) => {
+    deletePicture(id);
   };
 
-  console.log(localPhoto);
   const handleAddPhoto = (id) => {
-    console.log(photos);
     addPhotoToDiapoFun(id, selectedButton);
   };
   const handleRemovePhoto = (id) => {
@@ -42,7 +40,7 @@ export default function ListPhotoComponent({
   return (
     <Container sx={{ pt: 3, pb: 3 }} maxWidth="xl">
       <Grid container spacing={4}>
-        {localPhoto
+        {photos
           .sort((a, b) => a.name.name.localeCompare(b.name.name))
           .map((photo) =>
             photo.diapo_id === selectedButton ? (
@@ -102,7 +100,7 @@ export default function ListPhotoComponent({
                       </Button>
                       <IconButton
                         aria-label="delete"
-                        onClick={() => handleNewPhoto(photo.id)}
+                        onClick={() => handleDeletePhoto(photo.id)}
                       >
                         {" "}
                         <DeleteIcon />
@@ -169,7 +167,7 @@ export default function ListPhotoComponent({
                       </Button>
                       <IconButton
                         aria-label="delete"
-                        onClick={() => handleNewPhoto(photo.id)}
+                        onClick={() => handleDeletePhoto(photo.id)}
                       >
                         {" "}
                         <DeleteIcon />
