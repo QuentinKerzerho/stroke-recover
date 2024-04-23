@@ -22,3 +22,14 @@ export const getAllNames = async () => {
   await prisma.$disconnect();
   return names;
 };
+
+// supprimer un nom
+export const deleteName = async (id) => {
+  const deletedName = await prisma.name.delete({
+    where: {
+      id: id,
+    },
+  });
+  await prisma.$disconnect();
+  return deletedName;
+};

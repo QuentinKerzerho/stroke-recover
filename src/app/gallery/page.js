@@ -5,6 +5,7 @@ import { createDiapo } from "@/src/query/diapo.query";
 import { deleteDiapo } from "@/src/query/diapo.query";
 import { createPhoto } from "@/src/query/photo.query";
 import { deletePhoto } from "@/src/query/photo.query";
+import { deleteName } from "@/src/query/name.query";
 import { addPhotoToDiapo } from "@/src/query/photo.query";
 import { removePhotoFromDiapo } from "@/src/query/photo.query";
 import GalleryForm from "@/src/app/gallery/GalleryForm";
@@ -42,6 +43,13 @@ export default async function Gallery() {
     revalidatePath("/gallery", "page");
   };
 
+  const deleteNameFun = async (id) => {
+    // On supprime un nom
+    "use server";
+    await deleteName(id);
+    revalidatePath("/gallery", "page");
+  };
+
   const removePhotoFromDiapoFun = async (photoId) => {
     // On enlève une photo d'une diapo
     "use server";
@@ -65,6 +73,7 @@ export default async function Gallery() {
         newPhoto={newPhoto}
         photos={photos}
         deletePicture={deletePicture}
+        deleteNameFun={deleteNameFun}
         addPhotoToDiapoFun={addPhotoToDiapoFun}
         removePhotoFromDiapoFun={removePhotoFromDiapoFun}
       />

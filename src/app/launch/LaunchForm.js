@@ -5,14 +5,13 @@ import ResponsiveAppBar from "@/src/components/ResponsiveAppBar";
 import Launcher from "@/src/components/Launcher";
 import { useSearchParams } from "next/navigation"; // Importez useRouter
 
-export default function LaunchForm({ photos, diapos, names }) {
-  const searchParams = useSearchParams();
+export default function LaunchForm({ diapos, names }) {
+  const searchParams = useSearchParams(); // on récupere l'id dans la barre de recherche
   const id = searchParams.get("id");
-  console.log("id", id);
   return (
     <div>
       <ResponsiveAppBar />
-      <Launcher id={id} diapos={diapos} photos={photos} names={names} />
+      <Launcher id={id} diapos={diapos} names={names} />
     </div>
   );
 }

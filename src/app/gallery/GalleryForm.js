@@ -21,6 +21,7 @@ export default function GalleryForm({
   deletePicture,
   addPhotoToDiapoFun,
   removePhotoFromDiapoFun,
+  deleteNameFun,
 }) {
   const [selectedButton, setSelectedButton] = useState(null);
   const handleSelectedButton = (button) => {
@@ -108,6 +109,7 @@ export default function GalleryForm({
           photos={photos}
           selectedButton={selectedButton}
           deletePicture={deletePicture}
+          deleteNameFun={deleteNameFun}
           addPhotoToDiapoFun={addPhotoToDiapoFun}
           removePhotoFromDiapoFun={removePhotoFromDiapoFun}
         />{" "}

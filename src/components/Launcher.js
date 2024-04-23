@@ -17,7 +17,7 @@ import Typography from "@mui/material/Typography";
 import Link from "next/link";
 export const dynamic = "force-dynamic";
 
-export default function Launcher({ id, photos, diapos, names }) {
+export default function Launcher({ id, diapos, names }) {
   const [nameField, setNameField] = useState("");
   const [count, setCount] = useState(0);
   const [gameOver, setGameOver] = useState(false);

@@ -19,6 +19,7 @@ export default function ListPhotoComponent({
   photos,
   selectedButton,
   deletePicture,
+  deleteNameFun,
   removePhotoFromDiapoFun,
   addPhotoToDiapoFun,
 }) {
@@ -28,6 +29,9 @@ export default function ListPhotoComponent({
 
   const handleDeletePhoto = (id) => {
     deletePicture(id);
+  };
+  const handleDeleteName = (id) => {
+    deleteNameFun(id);
   };
 
   const handleAddPhoto = (id) => {
@@ -100,9 +104,11 @@ export default function ListPhotoComponent({
                       </Button>
                       <IconButton
                         aria-label="delete"
-                        onClick={() => handleDeletePhoto(photo.id)}
+                        onClick={() => {
+                          handleDeletePhoto(photo.id);
+                          handleDeleteName(photo.name.id);
+                        }}
                       >
-                        {" "}
                         <DeleteIcon />
                       </IconButton>
                     </CardActions>
@@ -167,7 +173,10 @@ export default function ListPhotoComponent({
                       </Button>
                       <IconButton
                         aria-label="delete"
-                        onClick={() => handleDeletePhoto(photo.id)}
+                        onClick={() => {
+                          handleDeletePhoto(photo.id);
+                          handleDeleteName(photo.name.id);
+                        }}
                       >
                         {" "}
                         <DeleteIcon />
