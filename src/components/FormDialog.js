@@ -20,21 +20,20 @@ export default function FormDialog({ newPhoto, photos }) {
   const [open, setOpen] = React.useState(false); // Gestion de l'ouverture de la boîte de dialogue
   const nameDataTotal = { name: nameData.trim() }; // Objet contenant le nom de la photo // Gestion des photos et avec createdPhoto on ajoute une photo ligne 34
 
-  const [localPhoto, setLocalPhoto] = useState([...photos]); // Gestion des photos et avec createdPhoto on ajoute une photo ligne 34
-
   const handleNameChange = (event) => {
     // Gestion du changement de nom
     setName(event.target.value);
   };
+
   const handleUrlChange = (event) => {
     // Gestion du changement d'url
     setUrl(event.target.value);
   };
+
   const handleSubmit = async (event) => {
     // Gestion de la soumission du formulaire
     event.preventDefault();
-    const createdPhoto = await newPhoto(photoUrl, nameDataTotal);
-    setLocalPhoto((prevPhotos) => [...prevPhotos, createdPhoto]);
+    await newPhoto(photoUrl, nameDataTotal);
     handleClose();
   };
 
