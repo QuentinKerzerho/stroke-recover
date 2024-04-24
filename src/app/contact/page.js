@@ -7,13 +7,23 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { ThemeProvider } from "@mui/material/styles"; // Pour utiliser le thème
 import { theme } from "@/src/theme/theme";
+import ContactForm from "@/src/components/ContactForm";
 
 const Contact = () => {
   return (
     <div>
       <ThemeProvider theme={theme}>
         <ResponsiveAppBar />
-        <Box
+        <ContactForm />
+      </ThemeProvider>
+    </div>
+  );
+};
+
+export default Contact;
+
+//{
+/* <Box
           component="form"
           sx={{
             marginTop: "50px",
@@ -45,51 +55,46 @@ const Contact = () => {
           >
             Formulaire de contact
           </Typography>
-          {/* <label>Prénom</label> */}
-          <TextField
-            sx={{ m: 1, width: "25ch" }}
-            id="outlined-basic"
-            label="Nom"
-            variant="outlined"
-          />
-          {/* <label>Nom</label> */}
-          <TextField
-            sx={{ m: 1, width: "25ch" }}
-            id="outlined-basic"
-            label="Prénom"
-            variant="outlined"
-          />
-          {/* <label>Mail</label> */}
-          <TextField
-            sx={{ m: 1, width: "25ch" }}
-            id="outlined-basic"
-            label="Mail"
-            variant="outlined"
-          />
-          <TextField
-            sx={{ m: 1, width: "25ch" }}
-            id="outlined-multiline-static"
-            label="Texte"
-            multiline
-            rows={4}
-            defaultValue=""
-          />
-          <Button
-            style={{ backgroundColor: "#FD853A" }}
-            sx={{
-              m: 1,
-              width: "25ch",
-              fontFamily: "Holtwood One Sc",
-              height: "3em",
-            }}
-            variant="contained"
-          >
-            Envoyer
-          </Button>
-        </Box>
-      </ThemeProvider>
-    </div>
-  );
-};
-
-export default Contact;
+          {/* <label>Prénom</label> */
+//}
+//   <TextField
+//     sx={{ m: 1, width: "25ch" }}
+//     id="outlined-basic"
+//     label="Nom"
+//     variant="outlined"
+//   />
+//   {/* <label>Nom</label> */}
+//   <TextField
+//     sx={{ m: 1, width: "25ch" }}
+//     id="outlined-basic"
+//     label="Prénom"
+//     variant="outlined"
+//   />
+//   {/* <label>Mail</label> */}
+//   <TextField
+//     sx={{ m: 1, width: "25ch" }}
+//     id="outlined-basic"
+//     label="Mail"
+//     variant="outlined"
+//   />
+//   <TextField
+//     sx={{ m: 1, width: "25ch" }}
+//     id="outlined-multiline-static"
+//     label="Texte"
+//     multiline
+//     rows={4}
+//     defaultValue=""
+//   />
+//   <Button
+//     style={{ backgroundColor: "#FD853A" }}
+//     sx={{
+//       m: 1,
+//       width: "25ch",
+//       fontFamily: "Holtwood One Sc",
+//       height: "3em",
+//     }}
+//     variant="contained"
+//   >
+//     Envoyer
+//   </Button>
+// </Box> */}
