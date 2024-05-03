@@ -1,13 +1,13 @@
 "use server";
 
 import ResponsiveAppBar from "@/src/components/ResponsiveAppBar";
-import BasicButtons from "../components/BasicButtons";
-import TextIntro from "../components/TextIntro";
+import BasicButtons from "@/src/components/BasicButtons";
+import TextIntro from "@/src/components/TextIntro";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import React from "react";
 import { getLatestDiapo } from "@/src/query/diapo.query";
-import ChoiceDiapo from "../components/ChoiceDiapo";
+import ChoiceDiapo from "@/src/components/ChoiceDiapo";
 
 export default async function Home() {
   const diaposQuery = await getLatestDiapo();

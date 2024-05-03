@@ -1,8 +1,21 @@
 {
   "compilerOptions": {
+    "target": "es6",
+    "allowJs": true,
+    "checkJs": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "jsx": "preserve",
+    "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      
     }
-  }
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

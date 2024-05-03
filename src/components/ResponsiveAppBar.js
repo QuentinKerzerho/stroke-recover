@@ -15,8 +15,8 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import "@fontsource/holtwood-one-sc"; // Defaults to weight 400
 import Link from "next/link";
-import Home from "@/src/app/page";
-import Contact from "@/src/app/contact/page";
+import Home from "../app/page";
+import Contact from "../app/contact/page";
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
