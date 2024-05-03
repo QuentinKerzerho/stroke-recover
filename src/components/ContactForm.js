@@ -7,7 +7,7 @@ import TextField from "@mui/material/TextField";
 import { FormControl } from "@mui/material";
 
 export default function ContactForm() {
-  const [state, handleSubmit] = useForm(process.env.NEXT_PUBLIC_FORM);
+  const [state, handleSubmit] = useForm("mvoedlzy");
 
   if (state.succeeded) {
     return <p>Thanks for your submission!</p>;
