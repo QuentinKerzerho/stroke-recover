@@ -3,6 +3,7 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
 import Link from "next/link";
+export const dynamic = "force-dynamic";
 
 export default function BasicButtons(props) {
   const { to, name } = props;
