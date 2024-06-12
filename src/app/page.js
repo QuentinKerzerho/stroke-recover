@@ -1,5 +1,3 @@
-"use server";
-
 import ResponsiveAppBar from "@/src/components/ResponsiveAppBar";
 import BasicButtons from "../components/BasicButtons";
 import TextIntro from "../components/TextIntro";
@@ -8,6 +6,8 @@ import Box from "@mui/material/Box";
 import React from "react";
 import { getLatestDiapo } from "@/src/query/diapo.query";
 import ChoiceDiapo from "../components/ChoiceDiapo";
+
+export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const diaposQuery = await getLatestDiapo();
