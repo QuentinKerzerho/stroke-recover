@@ -16,5 +16,11 @@ export const theme = createTheme({
       dark: "#FD853A",
       contrastText: "#000",
     },
+    tertiary: {
+      light: "#dbb495",
+      main: "#dbb495",
+      dark: "#dbb495",
+      contrastText: "#fff",
+    },
   },
 });
