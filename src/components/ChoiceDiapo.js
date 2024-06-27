@@ -45,7 +45,7 @@ export default function ChoiceDiapo({ diapos }) {
         <CardActionArea>
           <Link
             href={{
-              pathname: "/launch",
+              pathname: "/newlaunch",
               query: { id: `${id}` },
             }}
           >
