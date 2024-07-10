@@ -11,18 +11,11 @@ import TextField from "@mui/material/TextField";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "@/src/theme/theme";
 import { useState } from "react";
-import TipsAndUpdatesIcon from "@mui/icons-material/TipsAndUpdates";
-import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import Link from "next/link";
-import Image from "next/image";
 export const dynamic = "force-dynamic";
-import { ButtonBase } from "@mui/material";
-import Fab from "@mui/material/Fab";
-import Card from "@mui/material/Card";
 
 import "@fontsource-variable/quicksand";
-import { BorderColor, Web } from "@mui/icons-material";
 
 export default function NewLauncher({ id, diapos, names }) {
   const [nameField, setNameField] = useState("");

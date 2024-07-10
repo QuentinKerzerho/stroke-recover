@@ -75,17 +75,17 @@ function Slider() {
           }}
         >
           Bonjour et bienvenue sur le site de Stroke Recover. <br />
-          Je m'appelle Quentin Kerzerho et je suis étudiant en développement
-          web. À la fin de ma formation, j'ai voulu continuer mon apprentissage
-          dans un projet qui avait du sens pour moi. <br />
-          Ce projet est venu car mon père a subi un AVC et j'ai vu les
-          difficultés qu'il a rencontrées pour retrouver ses capacités
-          cognitives. J'ai donc décidé de créer ce jeu pour aider les personnes
-          qui ont subi un AVC à retrouver leurs capacités.
-          <br /> J'espère que ce jeu vous aidera à retrouver vos capacités
+          Je m&apos;appelle Quentin Kerzerho et je suis étudiant en
+          développement web. À la fin de ma formation, j&apos;ai voulu continuer
+          mon apprentissage dans un projet qui avait du sens pour moi. <br />
+          Ce projet est venu car mon père a subi un AVC et j&apos;ai vu les
+          difficultés qu&apos;il a rencontrées pour retrouver ses capacités
+          cognitives. J&apos;ai donc décidé de créer ce jeu pour aider les
+          personnes qui ont subi un AVC à retrouver leurs capacités.
+          <br /> J&apos;espère que ce jeu vous aidera à retrouver vos capacités
           cognitives et à vous sentir mieux.
-          <br /> N'hésitez pas à me contacter si vous avez des questions ou des
-          suggestions.
+          <br /> N&apos;hésitez pas à me contacter si vous avez des questions ou
+          des suggestions.
           <br /> Merci et à bientôt. Vous pouvez me retrouver sur LinkedIn
           :&nbsp;
           <a
