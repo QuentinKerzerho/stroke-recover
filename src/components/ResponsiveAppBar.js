@@ -100,7 +100,7 @@ function ResponsiveAppBar() {
                 </MenuItem>
               </Link>
               <Link href="/gallery">
-                <MenuItem key={Contact} onClick={handleCloseNavMenu}>
+                <MenuItem key={Home} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">Galerie</Typography>
                 </MenuItem>
               </Link>

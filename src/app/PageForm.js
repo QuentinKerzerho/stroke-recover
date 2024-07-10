@@ -133,7 +133,7 @@ export default function PageForm({ diapos }) {
                 }}
                 className="font-bold text-center absolute text-white tracking-tighter"
               >
-                loutil post-AVC
+                l&apos;outil post-AVC
               </p>
               <p
                 style={{
@@ -144,7 +144,7 @@ export default function PageForm({ diapos }) {
                 }}
                 className="font-bold text-center absolute text-white z-20 tracking-tighter"
               >
-                loutil post-AVC
+                l&apos;outil post-AVC
               </p>
             </Box>
           </Box>
