@@ -15,7 +15,7 @@ import { theme } from "@/src/theme/theme";
 import "@fontsource-variable/quicksand";
 import ChoiceDiapo from "@/src/components/ChoiceDiapo";
 
-export default function FrontForm({ diapos }) {
+export default function PageForm({ diapos }) {
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -133,7 +133,7 @@ export default function FrontForm({ diapos }) {
                 }}
                 className="font-bold text-center absolute text-white tracking-tighter"
               >
-                l'outil post-AVC
+                loutil post-AVC
               </p>
               <p
                 style={{
@@ -144,7 +144,7 @@ export default function FrontForm({ diapos }) {
                 }}
                 className="font-bold text-center absolute text-white z-20 tracking-tighter"
               >
-                l'outil post-AVC
+                loutil post-AVC
               </p>
             </Box>
           </Box>
