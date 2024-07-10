@@ -16,44 +16,44 @@ function Slider() {
     >
       <div key={"diapo1"}>
         <img
-          src="/assets/image/quentin1.jpg"
+          src="/assets/image/vide.jpg"
           alt="Titre Stroke Recover"
           style={{ width: "auto", height: "240px", marginLeft: "" }}
         />
         <img
-          src="/assets/image/quentin1.jpg"
+          src="/assets/image/vide.jpg"
           alt="Titre Stroke Recover"
           style={{ width: "auto", height: "240px", marginLeft: "30px" }}
         />
         <img
-          src="/assets/image/quentin1.jpg"
+          src="/assets/image/vide.jpg"
           alt="Titre Stroke Recover"
           style={{ width: "auto", height: "240px", marginLeft: "30px" }}
         />
         <img
-          src="/assets/image/quentin1.jpg"
+          src="/assets/image/vide.jpg"
           alt="Titre Stroke Recover"
           style={{ width: "auto", height: "240px", marginLeft: "30px" }}
         />
       </div>
       <div>
         <img
-          src="/assets/image/quentin1.jpg"
+          src="/assets/image/vide.jpg"
           alt="Titre Stroke Recover"
           style={{ width: "auto", height: "240px", marginLeft: "" }}
         />
         <img
-          src="/assets/image/quentin1.jpg"
+          src="/assets/image/vide.jpg"
           alt="Titre Stroke Recover"
           style={{ width: "auto", height: "240px", marginLeft: "30px" }}
         />
         <img
-          src="/assets/image/quentin1.jpg"
+          src="/assets/image/vide.jpg"
           alt="Titre Stroke Recover"
           style={{ width: "auto", height: "240px", marginLeft: "30px" }}
         />
         <img
-          src="/assets/image/quentin1.jpg"
+          src="/assets/image/vide.jpg"
           alt="Titre Stroke Recover"
           style={{ width: "auto", height: "240px", marginLeft: "30px" }}
         />

@@ -37,7 +37,7 @@ export default function ChoiceDiapo({ diapos }) {
         sx={{
           margin: "10px",
           minWidth: "180px",
-          backgroundColor: selectedButton === id ? "#FD853A" : "white",
+          backgroundColor: selectedButton === id ? "#dbb495" : "white",
           color: selectedButton === id ? "white" : "black",
         }}
         onClick={() => handleButtonClick(id)}
@@ -45,7 +45,7 @@ export default function ChoiceDiapo({ diapos }) {
         <CardActionArea>
           <Link
             href={{
-              pathname: "/newlaunch",
+              pathname: "/launch",
               query: { id: `${id}` },
             }}
           >
@@ -86,22 +86,17 @@ export default function ChoiceDiapo({ diapos }) {
 
   return (
     <div>
-      <Button
-        name="Name"
+      <button
         onClick={toggleDrawer(true)}
-        style={{ backgroundColor: "#FD853A" }}
-        sx={{
-          fontFamily: "Holtwood One Sc",
-          paddingRight: "2em",
-          paddingLeft: "2em",
-          paddingTop: "1em",
-          paddingBottom: "1em",
-          fontSize: "1.5em",
-        }}
-        variant="contained"
+        className="w-40 h-10 border-2 bg-black border-black rounded-md m-6"
       >
-        Lancer
-      </Button>
+        <p
+          style={{ fontFamily: "Quicksand Variable" }}
+          className="text-xs font-bold text-white"
+        >
+          Jouer 🚀
+        </p>
+      </button>
       <Drawer anchor={"bottom"} open={open} onClose={toggleDrawer(false)}>
         {/* Tiroir pour afficher les diaporamas */}
         {DrawerList}

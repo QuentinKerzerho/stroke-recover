@@ -7,15 +7,15 @@ import { Box } from "@mui/system";
 import { Container } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Button from "@mui/material/Button";
+import Link from "next/link";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "@/src/theme/theme";
 
 // Supports weights 300-700
 import "@fontsource-variable/quicksand";
+import ChoiceDiapo from "@/src/components/ChoiceDiapo";
 
-export const dynamic = "force-dynamic";
-
-export default function Home() {
+export default function PageForm({ diapos }) {
   return (
     <>
       <ThemeProvider theme={theme}>
@@ -55,23 +55,26 @@ export default function Home() {
               display: { xs: "none", sm: "flex", md: "flex" },
             }}
           >
-            <Button
-              disableElevation={true}
-              disableFocusRipple={true}
-              variant="outlined"
-              color="tertiary"
-              className="border-2 border-black rounded-full"
-              sx={{
-                fontFamily: "Quicksand Variable",
-                textTransform: "none",
-                color: "black",
-                "&:hover": {
-                  borderWidth: "2px", // Changez cette valeur pour ajuster la taille du contour lors du survol
-                },
-              }}
-            >
-              Accèder à son espace client
-            </Button>
+            <Link href="/gallery">
+              <Button
+                name="Name"
+                disableElevation={true}
+                disableFocusRipple={true}
+                variant="outlined"
+                color="secondary"
+                className="border-2 border-black rounded-full"
+                sx={{
+                  fontFamily: "Quicksand Variable",
+                  textTransform: "none",
+                  color: "black",
+                  "&:hover": {
+                    borderWidth: "2px", // Changez cette valeur pour ajuster la taille du contour lors du survol
+                  },
+                }}
+              >
+                Accèder à son espace client
+              </Button>
+            </Link>
           </Box>
         </AppBar>
         <Container maxWidth="xl">
@@ -130,7 +133,7 @@ export default function Home() {
                 }}
                 className="font-bold text-center absolute text-white tracking-tighter"
               >
-                le jeu post-AVC
+                l&apos;outil post-AVC
               </p>
               <p
                 style={{
@@ -141,7 +144,7 @@ export default function Home() {
                 }}
                 className="font-bold text-center absolute text-white z-20 tracking-tighter"
               >
-                le jeu post-AVC
+                l&apos;outil post-AVC
               </p>
             </Box>
           </Box>
@@ -154,20 +157,13 @@ export default function Home() {
               }}
               className="font-bold text-center tracking-tighter"
             >
-              jusqu&apos;à 70% des survivants d&apos;AVC peuvent souffrir de
-              troubles cognitifs, y <br /> compris des problèmes de mémoire,
+              jusqu&apos;à 70% des personnes ayant subi un AVC peuvent souffrir
+              de troubles cognitifs, y <br /> compris des problèmes de mémoire,
               dans les mois suivant l&apos;AVC.
             </p>
           </Box>
           <div className="flex flex-col items-center relative w-auto">
-            <button className="w-40 h-10 border-2 bg-black border-black rounded-md m-6">
-              <p
-                style={{ fontFamily: "Quicksand Variable" }}
-                className="text-xs font-bold text-white"
-              >
-                Jouer 🚀
-              </p>
-            </button>
+            <ChoiceDiapo diapos={diapos} />
           </div>
           <div
             style={{
