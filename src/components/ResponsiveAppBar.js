@@ -16,7 +16,6 @@ import MenuItem from "@mui/material/MenuItem";
 import "@fontsource/holtwood-one-sc"; // Defaults to weight 400
 import Link from "next/link";
 import Home from "@/src/app/page";
-import Contact from "@/src/app/contact/page";
 
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -101,13 +100,8 @@ function ResponsiveAppBar() {
                 </MenuItem>
               </Link>
               <Link href="/gallery">
-                <MenuItem key={Contact} onClick={handleCloseNavMenu}>
+                <MenuItem key={Home} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">Galerie</Typography>
-                </MenuItem>
-              </Link>
-              <Link href="/contact">
-                <MenuItem key={Contact} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">Contact</Typography>
                 </MenuItem>
               </Link>
               {/* ))} */}
@@ -120,15 +114,6 @@ function ResponsiveAppBar() {
               display: { xs: "none", sm: "flex", md: "flex" },
             }}
           >
-            <Link href="/contact">
-              <Button
-                key={Contact}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                Contact
-              </Button>
-            </Link>
             <Link href="/gallery">
               <Button
                 key={Home}
