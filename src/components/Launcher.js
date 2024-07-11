@@ -304,7 +304,8 @@ export default function NewLauncher({ id, diapos, names }) {
                 {/* Echanger si on veut mettre l'ancien */}
                 <Button
                   onClick={handleHint}
-                  className="hover:bg-red flex ml-2 self-center items-center justify-center w-10 h-10 bg-black rounded-full text-white font-bold"
+                  className="hover:bg-red flex ml-2 self-center items-center justify-center w-10 h-10 bg-black text-white font-bold"
+                  style={{ borderRadius: "100%" }}
                   sx={{
                     "&:hover": {
                       backgroundColor: "grey", // Changez cette valeur pour ajuster la taille du contour lors du survol
