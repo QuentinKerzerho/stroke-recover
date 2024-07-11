@@ -65,7 +65,7 @@ export default function PageForm({ diapos }) {
                 sx={{
                   borderWidth: "2px",
                   borderColor: "black",
-                  borderRadius: "100%",
+                  borderRadius: "40px",
                   fontFamily: "Quicksand Variable",
                   textTransform: "none",
                   color: "black",
