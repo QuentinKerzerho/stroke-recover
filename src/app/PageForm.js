@@ -62,8 +62,10 @@ export default function PageForm({ diapos }) {
                 disableFocusRipple={true}
                 variant="outlined"
                 color="secondary"
-                className="border-2 border-black rounded-full"
                 sx={{
+                  borderWidth: "2px",
+                  borderColor: "black",
+                  borderRadius: "100%",
                   fontFamily: "Quicksand Variable",
                   textTransform: "none",
                   color: "black",
