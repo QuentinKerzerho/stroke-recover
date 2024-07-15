@@ -7,7 +7,7 @@ import { Carousel } from "react-responsive-carousel";
 function Slider() {
   return (
     <Carousel
-      transitionTime={300}
+      transitionTime={500}
       showStatus={false}
       showThumbs={false}
       infiniteLoop={true}
@@ -18,58 +18,58 @@ function Slider() {
         <img
           src="/assets/image/vide.jpg"
           alt="Titre Stroke Recover"
-          style={{ width: "auto", height: "240px", marginLeft: "" }}
+          style={{ width: "auto", height: "10vw", marginLeft: "" }}
         />
         <img
           src="/assets/image/vide.jpg"
           alt="Titre Stroke Recover"
-          style={{ width: "auto", height: "240px", marginLeft: "30px" }}
+          style={{ width: "auto", height: "10vw", marginLeft: "30px" }}
         />
         <img
           src="/assets/image/vide.jpg"
           alt="Titre Stroke Recover"
-          style={{ width: "auto", height: "240px", marginLeft: "30px" }}
+          style={{ width: "auto", height: "10vw", marginLeft: "30px" }}
         />
         <img
           src="/assets/image/vide.jpg"
           alt="Titre Stroke Recover"
-          style={{ width: "auto", height: "240px", marginLeft: "30px" }}
+          style={{ width: "auto", height: "10vw", marginLeft: "30px" }}
         />
       </div>
       <div>
         <img
           src="/assets/image/vide.jpg"
           alt="Titre Stroke Recover"
-          style={{ width: "auto", height: "240px", marginLeft: "" }}
+          style={{ width: "auto", height: "10vw", marginLeft: "" }}
         />
         <img
           src="/assets/image/vide.jpg"
           alt="Titre Stroke Recover"
-          style={{ width: "auto", height: "240px", marginLeft: "30px" }}
+          style={{ width: "auto", height: "10vw", marginLeft: "30px" }}
         />
         <img
           src="/assets/image/vide.jpg"
           alt="Titre Stroke Recover"
-          style={{ width: "auto", height: "240px", marginLeft: "30px" }}
+          style={{ width: "auto", height: "10vw", marginLeft: "30px" }}
         />
         <img
           src="/assets/image/vide.jpg"
           alt="Titre Stroke Recover"
-          style={{ width: "auto", height: "240px", marginLeft: "30px" }}
+          style={{ width: "auto", height: "10vw", marginLeft: "30px" }}
         />
       </div>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <img
           src="/assets/image/quentin1.jpg"
           alt="Titre Stroke Recover"
-          style={{ width: "auto", height: "240px" }}
+          style={{ width: "auto", height: "10vw" }}
         />
         <p
           style={{
             color: "white",
             textAlign: "start",
             alignContent: "center",
-            fontSize: "0.95rem",
+            fontSize: "0.8rem",
             width: "50rem",
             marginLeft: "20px",
           }}

@@ -10,76 +10,103 @@ import Button from "@mui/material/Button";
 import Link from "next/link";
 import { ThemeProvider } from "@mui/material/styles";
 import { theme } from "@/src/theme/theme";
+import MobileAlert from "../components/MobileAlert";
+import "./globals.css";
+import { useEffect, useState } from "react";
 
 // Supports weights 300-700
 import "@fontsource-variable/quicksand";
 import ChoiceDiapo from "@/src/components/ChoiceDiapo";
 
 export default function PageForm({ diapos }) {
-  return (
-    <>
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize(); // Vérifie la taille de l'écran au chargement
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  if (!isMobile) {
+    return (
       <ThemeProvider theme={theme}>
-        <AppBar
-          color="transparent"
+        <Container
+          maxWidth="xl"
           sx={{
-            boxShadow: 0,
+            minHeight: "100vh",
             display: "flex",
-            flexDirection: "row",
-            justifyContent: {
-              xs: "center",
-              sm: "space-between",
-              md: "space-between",
-            },
-            alignItems: "center",
-            padding: "2rem",
+            flexDirection: "column",
+            justifyContent: "space-around",
           }}
-          position="relative"
         >
-          <Box
-            className="w-52"
+          <AppBar
+            color="transparent"
             sx={{
-              display: { xs: "none", sm: "flex", md: "flex" },
+              boxShadow: 0,
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: {
+                xs: "center",
+                sm: "space-between",
+                md: "space-between",
+              },
+              alignItems: "center",
+              padding: "2rem",
             }}
-          ></Box>{" "}
-          {/* Spacer */}
-          <Box className="flex">
-            <Image
-              src="/assets/image/titresvg.svg"
-              alt="Titre Stroke Recover"
-              width={200}
-              height={200}
-            />
-          </Box>
-          <Box
-            sx={{
-              display: { xs: "none", sm: "flex", md: "flex" },
-            }}
+            position="relative"
           >
-            <Link href="/gallery">
-              <Button
-                name="Name"
-                disableElevation={true}
-                disableFocusRipple={true}
-                variant="outlined"
-                color="secondary"
-                sx={{
-                  borderWidth: "2px",
-                  borderColor: "black",
-                  borderRadius: "40px",
-                  fontFamily: "Quicksand Variable",
-                  textTransform: "none",
-                  color: "black",
-                  "&:hover": {
-                    borderWidth: "2px", // Changez cette valeur pour ajuster la taille du contour lors du survol
-                  },
-                }}
-              >
-                Accèder à son espace client
-              </Button>
-            </Link>
-          </Box>
-        </AppBar>
-        <Container maxWidth="xl">
+            <Box
+              className="w-52"
+              sx={{
+                display: { xs: "none", sm: "flex", md: "flex" },
+              }}
+            ></Box>{" "}
+            {/* Spacer */}
+            <Box className="flex">
+              <Image
+                src="/assets/image/titresvg.svg"
+                alt="Titre Stroke Recover"
+                width={200}
+                height={200}
+              />
+            </Box>
+            <Box
+              sx={{
+                display: { xs: "none", sm: "flex", md: "flex" },
+              }}
+            >
+              <Link href="/gallery">
+                <Button
+                  name="Name"
+                  disableElevation={true}
+                  disableFocusRipple={true}
+                  variant="outlined"
+                  color="secondary"
+                  sx={{
+                    borderWidth: "2px",
+                    borderColor: "black",
+                    borderRadius: "40px",
+                    fontFamily: "Quicksand Variable",
+                    textTransform: "none",
+                    color: "black",
+                    "&:hover": {
+                      borderWidth: "2px", // Changez cette valeur pour ajuster la taille du contour lors du survol
+                    },
+                  }}
+                >
+                  Accèder à son espace client
+                </Button>
+              </Link>
+            </Box>
+          </AppBar>
+
           <Box
             className="absolute left-36 top-16"
             sx={{
@@ -167,18 +194,6 @@ export default function PageForm({ diapos }) {
           <div className="flex flex-col items-center relative w-auto">
             <ChoiceDiapo diapos={diapos} />
           </div>
-          <div
-            style={{
-              zIndex: "-10",
-              position: "absolute",
-              display: "block",
-              left: "5%",
-              width: "90%",
-              height: "260px",
-              background: "#130D00",
-              borderRadius: "10px",
-            }}
-          ></div>
           <Box
             className="absolute right-16 top-64 z-50"
             sx={{
@@ -192,15 +207,35 @@ export default function PageForm({ diapos }) {
               height={200}
             />
           </Box>
-
+          {/* 
           <Box
             style={{
               position: "relative",
-              left: "10%",
-              marginTop: "10px",
-              width: "80%",
-              justifyContent: "center",
-              alignItems: "center",
+              left: "5%",
+            }}
+          >
+            <div
+              style={{
+                zIndex: "-10",
+                position: "absolute",
+                display: "block",
+                width: "90%",
+                height: "12vw",
+                background: "#130D00",
+                borderRadius: "10px",
+              }}
+            ></div>
+          </Box> */}
+
+          <Box
+            sx={{
+              position: "relative",
+              marginBottom: "2rem",
+              backgroundColor: "black",
+              width: "90%",
+              left: "5%",
+              padding: "1rem",
+              borderRadius: "10px",
             }}
           >
             <Slider />
@@ -214,7 +249,7 @@ export default function PageForm({ diapos }) {
               bottom: "0",
               left: "0",
               width: "100%",
-              height: "30px",
+              height: "2vw",
               color: "white",
               justifyContent: "end",
               paddingRight: "2rem",
@@ -225,6 +260,12 @@ export default function PageForm({ diapos }) {
           </Box>
         </Container>
       </ThemeProvider>
+    );
+  }
+
+  return (
+    <>
+      <MobileAlert />
     </>
   );
 }
